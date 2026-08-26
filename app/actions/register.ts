@@ -3,7 +3,8 @@
 import { upsertCourseLead } from "@/lib/brevo/contacts";
 import { mapBrevoError } from "@/lib/brevo/errors";
 import { notifyNewLead } from "@/lib/brevo/notify";
-import { readRegisterForm } from "@/lib/register/schema";
+import { t } from "@/lib/i18n/messages";
+import { readRegisterForm, resolveLocale } from "@/lib/register/schema";
 
 export type RegisterState = {
   status: "idle" | "success" | "error";
@@ -15,11 +16,13 @@ export async function registerLead(
   _prev: RegisterState,
   formData: FormData,
 ): Promise<RegisterState> {
+  const locale = resolveLocale(formData.get("locale"));
+
   if (String(formData.get("company") ?? "").trim()) {
-    return { status: "success", message: "Listo. Te escribimos pronto." };
+    return { status: "success", message: t(locale, "successHoneypot") };
   }
 
-  const parsed = readRegisterForm(formData);
+  const { parsed } = readRegisterForm(formData);
   if (!parsed.success) {
     const fieldErrors: Record<string, string> = {};
     for (const issue of parsed.error.issues) {
@@ -28,7 +31,7 @@ export async function registerLead(
     }
     return {
       status: "error",
-      message: "Revisa los campos marcados.",
+      message: t(locale, "reviewFields"),
       fieldErrors,
     };
   }
@@ -38,12 +41,12 @@ export async function registerLead(
     await notifyNewLead(parsed.data).catch(() => undefined);
     return {
       status: "success",
-      message: "Quedaste en la lista. Te escribimos por email o WhatsApp.",
+      message: t(locale, "successMessage"),
     };
   } catch (error) {
     return {
       status: "error",
-      message: mapBrevoError(error),
+      message: mapBrevoError(error, locale),
     };
   }
 }

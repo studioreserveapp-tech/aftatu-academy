@@ -1,7 +1,12 @@
+"use client";
+
+import { useLanguage } from "@/components/language-provider";
+
 const DEFAULT_VIDEO = "/media/hero.mp4";
 const DEFAULT_POSTER = "/media/hero-poster.jpg";
 
 export function HeroVideo() {
+  const { t } = useLanguage();
   const videoSrc = process.env.NEXT_PUBLIC_HERO_VIDEO_URL || DEFAULT_VIDEO;
 
   return (
@@ -25,15 +30,14 @@ export function HeroVideo() {
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-6xl flex-col justify-end px-6 pb-16 pt-28 sm:px-8 lg:pb-20">
         <p className="font-mono text-[11px] tracking-[0.32em] text-copper uppercase">
-          Curso · principiantes
+          {t("heroEyebrow")}
         </p>
         <h1 className="mt-5 max-w-4xl font-serif text-[3.15rem] leading-[0.92] text-paper sm:text-7xl lg:text-8xl">
-          Aprende a tatuar
-          <span className="italic text-copper"> desde cero.</span>
+          {t("heroTitle")}
+          <span className="italic text-copper">{t("heroTitleAccent")}</span>
         </h1>
         <p className="mt-7 max-w-xl text-base leading-7 text-paper/78 sm:text-lg">
-          Dos meses. Tres veces por semana. Dos horas al día para
-          sentarte, ensuciarte las manos y que la máquina deje de intimidar.
+          {t("heroLead")}
         </p>
       </div>
     </section>

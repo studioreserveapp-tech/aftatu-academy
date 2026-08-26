@@ -16,17 +16,17 @@ export async function notifyNewLead(input: RegisterInput) {
     `${input.firstName} ${input.lastName}`,
     input.email,
     input.phone,
-    input.instagram ? `@${input.instagram}` : "Sin Instagram",
+    input.instagram ? `@${input.instagram}` : "No Instagram",
     background,
-    input.portfolio || "Sin portfolio",
-    input.note || "Sin nota",
+    input.portfolio || "No portfolio",
+    input.note || "No note",
   ];
 
   await getBrevoClient().transactionalEmails.sendTransacEmail({
     sender,
     to: [{ email: notifyEmail }],
     replyTo: { email: input.email, name: `${input.firstName} ${input.lastName}` },
-    subject: `Nueva inscripción · ${input.firstName} ${input.lastName}`,
-    textContent: `Nueva inscripción al curso de principiantes.\n\n${lines.join("\n")}`,
+    subject: `New enrollment · ${input.firstName} ${input.lastName}`,
+    textContent: `New beginner course registration.\n\n${lines.join("\n")}`,
   });
 }

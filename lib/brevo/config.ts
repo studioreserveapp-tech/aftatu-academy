@@ -1,4 +1,5 @@
-const DEFAULT_COUNTRY_CODE = "52";
+/** US calling code. Bare 10-digit numbers become +1XXXXXXXXXX. */
+const DEFAULT_COUNTRY_CODE = "1";
 
 export function getBrevoApiKey() {
   const apiKey = process.env.BREVO_API_KEY?.trim();

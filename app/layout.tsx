@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { LanguageProvider } from "@/components/language-provider";
+import { messages } from "@/lib/i18n/messages";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,14 +22,13 @@ const instrument = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Aftatu Academy · Curso de tatuaje para principiantes",
-  description:
-    "Curso de dos meses para gente sin experiencia. Tres veces por semana, dos horas al día, para practicar de verdad.",
+  title: messages.en.metaTitle,
+  description: messages.en.metaDescription,
   openGraph: {
-    title: "Aftatu Academy · Curso de tatuaje para principiantes",
-    description:
-      "Dos meses. Tres veces por semana. Dos horas de práctica. Sin experiencia previa.",
-    locale: "es_MX",
+    title: messages.en.metaTitle,
+    description: messages.en.metaDescription,
+    locale: "en_US",
+    alternateLocale: ["es_MX", "es_US"],
     type: "website",
   },
 };
@@ -35,10 +36,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="es"
+      lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${instrument.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-ink text-paper">{children}</body>
+      <body className="min-h-full bg-ink text-paper">
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

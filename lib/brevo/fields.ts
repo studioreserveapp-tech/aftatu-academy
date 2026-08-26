@@ -12,9 +12,9 @@ export const BREVO_CONTACT_ATTRIBUTES = {
 export const COURSE_ATTRIBUTE_VALUE = "principiantes-2m";
 
 export const BACKGROUND_OPTIONS = [
-  { value: 1, label: "Empiezo de cero", formValue: "cero" },
-  { value: 2, label: "Tengo portfolio de dibujo", formValue: "dibujo" },
-  { value: 3, label: "Ya tatúo", formValue: "tatuador" },
+  { value: 1, label: "Starting from zero", formValue: "cero" },
+  { value: 2, label: "Drawing portfolio", formValue: "dibujo" },
+  { value: 3, label: "Already tattoos", formValue: "tatuador" },
 ] as const;
 
 export type BackgroundFormValue = (typeof BACKGROUND_OPTIONS)[number]["formValue"];
