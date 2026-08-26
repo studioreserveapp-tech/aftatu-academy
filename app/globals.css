@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #090807;
+  --paper: #f3eee4;
+  --mute: #b7aea0;
+  --copper: #c9a36a;
+  --line: rgba(243, 238, 228, 0.14);
+  --danger: #d46a5c;
+  --background: var(--ink);
+  --foreground: var(--paper);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-mute: var(--mute);
+  --color-copper: var(--copper);
+  --color-line: var(--line);
+  --color-danger: var(--danger);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-instrument);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-sans), sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--copper) 70%, black);
+  color: var(--ink);
+}
+
+.film-grain {
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.28;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--paper);
+  border-radius: 0;
+  padding: 0.9rem 0.95rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.field:focus {
+  border-color: color-mix(in srgb, var(--copper) 70%, white);
+  background: rgba(243, 238, 228, 0.03);
+}
+
+.field-error {
+  border-color: color-mix(in srgb, var(--danger) 70%, transparent);
+}
+
+.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border: 1px solid var(--line);
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.choice:has(input:checked) {
+  border-color: color-mix(in srgb, var(--copper) 75%, white);
+  background: rgba(201, 163, 106, 0.08);
+}
+
+.choice input {
+  margin-top: 0.2rem;
+  accent-color: var(--copper);
+}
