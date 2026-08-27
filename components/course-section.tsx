@@ -15,8 +15,12 @@ export function CourseSection() {
           {t("courseEyebrow")}
         </p>
         <h2 className="mb-6 font-serif text-4xl leading-tight">{t("courseTitle")}</h2>
-        <p className="mb-4 text-sm font-light text-gray-600">{t("courseP1")}</p>
-        <p className="mb-8 text-sm font-light text-gray-600">{t("courseP2")}</p>
+        <p className={`text-sm font-light text-gray-600 ${t("courseP2") ? "mb-4" : "mb-8"}`}>
+          {t("courseP1")}
+        </p>
+        {t("courseP2") ? (
+          <p className="mb-8 text-sm font-light text-gray-600">{t("courseP2")}</p>
+        ) : null}
         <ul className="mx-auto mb-10 max-w-sm space-y-3 text-left text-sm">
           {CHECKS.map((key) => (
             <li key={key} className="flex items-start gap-3">
