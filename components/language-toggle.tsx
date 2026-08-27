@@ -13,7 +13,7 @@ export function LanguageToggle() {
 
   return (
     <div
-      className="flex items-center gap-1 font-mono text-[11px] tracking-[0.22em]"
+      className="flex items-center gap-1 text-[11px] font-semibold tracking-[0.18em]"
       role="group"
       aria-label={t("languageLabel")}
     >
@@ -26,7 +26,7 @@ export function LanguageToggle() {
             onClick={() => setLocale(code)}
             aria-pressed={active}
             className={`px-1.5 py-0.5 uppercase transition-colors ${
-              active ? "text-copper" : "text-paper/55 hover:text-paper"
+              active ? "text-ink" : "text-ink/35 hover:text-ink"
             }`}
           >
             {LABELS[code]}

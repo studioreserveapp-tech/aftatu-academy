@@ -28,11 +28,11 @@ export function RegisterForm() {
 
   if (state.status === "success") {
     return (
-      <div className="border border-line px-6 py-10 sm:px-8">
-        <p className="font-mono text-[11px] tracking-[0.28em] text-copper uppercase">
+      <div className="border border-line bg-mist px-6 py-10 sm:px-8">
+        <p className="text-[11px] font-semibold tracking-[0.22em] text-ink/50 uppercase">
           {t("successEyebrow")}
         </p>
-        <h3 className="mt-4 font-serif text-3xl text-paper">{t("successTitle")}</h3>
+        <h3 className="mt-4 font-serif text-3xl text-ink">{t("successTitle")}</h3>
         <p className="mt-4 max-w-md text-base leading-7 text-mute">
           {state.message ?? t("successMessage")}
         </p>
@@ -54,7 +54,7 @@ export function RegisterForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block">
-          <span className="mb-2 block font-mono text-[10px] tracking-[0.22em] text-mute uppercase">
+          <span className="mb-2 block text-[10px] font-semibold tracking-[0.22em] text-mute uppercase">
             {t("fieldFirstName")}
           </span>
           <input
@@ -66,7 +66,7 @@ export function RegisterForm() {
           <FieldError message={state.fieldErrors?.firstName} />
         </label>
         <label className="block">
-          <span className="mb-2 block font-mono text-[10px] tracking-[0.22em] text-mute uppercase">
+          <span className="mb-2 block text-[10px] font-semibold tracking-[0.22em] text-mute uppercase">
             {t("fieldLastName")}
           </span>
           <input
@@ -81,7 +81,7 @@ export function RegisterForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block">
-          <span className="mb-2 block font-mono text-[10px] tracking-[0.22em] text-mute uppercase">
+          <span className="mb-2 block text-[10px] font-semibold tracking-[0.22em] text-mute uppercase">
             {t("fieldEmail")}
           </span>
           <input
@@ -94,7 +94,7 @@ export function RegisterForm() {
           <FieldError message={state.fieldErrors?.email} />
         </label>
         <label className="block">
-          <span className="mb-2 block font-mono text-[10px] tracking-[0.22em] text-mute uppercase">
+          <span className="mb-2 block text-[10px] font-semibold tracking-[0.22em] text-mute uppercase">
             {t("fieldPhone")}
           </span>
           <input
@@ -111,7 +111,7 @@ export function RegisterForm() {
       </div>
 
       <label className="block">
-        <span className="mb-2 block font-mono text-[10px] tracking-[0.22em] text-mute uppercase">
+        <span className="mb-2 block text-[10px] font-semibold tracking-[0.22em] text-mute uppercase">
           {t("fieldInstagram")}
         </span>
         <div className="relative">
@@ -129,7 +129,7 @@ export function RegisterForm() {
       </label>
 
       <fieldset>
-        <legend className="mb-3 font-mono text-[10px] tracking-[0.22em] text-mute uppercase">
+        <legend className="mb-3 text-[10px] font-semibold tracking-[0.22em] text-mute uppercase">
           {t("fieldBackground")}
         </legend>
         <div className="grid gap-3">
@@ -144,7 +144,7 @@ export function RegisterForm() {
                   defaultChecked={option.formValue === "cero"}
                 />
                 <span>
-                  <span className="block text-sm text-paper">{t(copy.label)}</span>
+                  <span className="block text-sm text-ink">{t(copy.label)}</span>
                   <span className="mt-1 block text-sm text-mute">{t(copy.help)}</span>
                 </span>
               </label>
@@ -154,7 +154,7 @@ export function RegisterForm() {
       </fieldset>
 
       <label className="block">
-        <span className="mb-2 block font-mono text-[10px] tracking-[0.22em] text-mute uppercase">
+        <span className="mb-2 block text-[10px] font-semibold tracking-[0.22em] text-mute uppercase">
           {t("fieldPortfolio")}
         </span>
         <input
@@ -167,7 +167,7 @@ export function RegisterForm() {
       </label>
 
       <label className="block">
-        <span className="mb-2 block font-mono text-[10px] tracking-[0.22em] text-mute uppercase">
+        <span className="mb-2 block text-[10px] font-semibold tracking-[0.22em] text-mute uppercase">
           {t("fieldNote")}
         </span>
         <textarea
@@ -186,7 +186,7 @@ export function RegisterForm() {
       <button
         type="submit"
         disabled={pending}
-        className="w-full border border-copper bg-copper px-6 py-4 text-sm font-medium tracking-wide text-ink transition-colors hover:bg-paper disabled:cursor-wait disabled:opacity-70"
+        className="btn-primary w-full disabled:cursor-wait disabled:opacity-70"
       >
         {pending ? t("submitting") : t("submit")}
       </button>
