@@ -1,43 +1,90 @@
 "use client";
 
-import { ArrowIcon, NeedleMark } from "@/components/icons";
+import { useState } from "react";
 import { LanguageToggle } from "@/components/language-toggle";
 import { useLanguage } from "@/components/language-provider";
 
 export function SiteHeader() {
   const { t } = useLanguage();
+  const [open, setOpen] = useState(false);
+
+  const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-30 border-b border-line bg-paper/92 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4 sm:px-8">
-        <a href="#top" className="flex items-center gap-2.5 text-ink">
-          <NeedleMark />
-          <span className="font-serif text-lg tracking-tight">{t("brandName")}</span>
+    <header className="absolute top-0 right-0 left-0 z-50 border-b border-white/20">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
+        <a href="#top" className="flex flex-col leading-none uppercase" onClick={close}>
+          <span className="text-xl font-black tracking-tight">{t("brandTop")}</span>
+          <span className="mt-[-2px] text-[10px] tracking-widest">{t("brandMid")}</span>
+          <span className="mt-[-2px] text-[6px] tracking-widest text-mute">
+            {t("brandBottom")}
+          </span>
         </a>
 
-        <nav className="hidden items-center gap-7 text-[11px] font-semibold tracking-[0.18em] text-ink/70 uppercase md:flex">
-          <a href="#top" className="transition-colors hover:text-ink">
-            {t("navHome")}
-          </a>
-          <a href="#course" className="transition-colors hover:text-ink">
-            {t("navCourse")}
-          </a>
-          <a href="#program" className="transition-colors hover:text-ink">
+        <nav className="hidden items-center gap-6 text-sm text-soft md:flex">
+          <a className="transition hover:text-paper" href="#learn">
             {t("navMethod")}
           </a>
-          <a href="#register" className="transition-colors hover:text-ink">
+          <a className="transition hover:text-paper" href="#program">
+            {t("navCourse")}
+          </a>
+          <a className="transition hover:text-paper" href="#register">
             {t("navRegister")}
+          </a>
+          <LanguageToggle />
+          <a href="#register" className="btn-outline">
+            {t("headerEnroll")}
           </a>
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 md:hidden">
           <LanguageToggle />
-          <a href="#register" className="btn-primary !px-4 !py-2.5">
-            {t("headerEnroll")}
-            <ArrowIcon />
-          </a>
+          <button
+            type="button"
+            className="text-paper"
+            aria-expanded={open}
+            aria-label={open ? t("menuClose") : t("menuOpen")}
+            onClick={() => setOpen((value) => !value)}
+          >
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {open ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
         </div>
       </div>
+
+      {open ? (
+        <div className="border-t border-white/15 bg-ink/95 px-6 py-5 md:hidden">
+          <nav className="flex flex-col gap-4 text-sm text-soft">
+            <a href="#learn" onClick={close}>
+              {t("navMethod")}
+            </a>
+            <a href="#program" onClick={close}>
+              {t("navCourse")}
+            </a>
+            <a href="#register" onClick={close}>
+              {t("navRegister")}
+            </a>
+            <a href="#register" className="btn-outline w-fit" onClick={close}>
+              {t("headerEnroll")}
+            </a>
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 }

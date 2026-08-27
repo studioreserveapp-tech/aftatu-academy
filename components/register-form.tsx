@@ -28,7 +28,7 @@ export function RegisterForm() {
 
   if (state.status === "success") {
     return (
-      <div className="border border-line bg-mist px-6 py-10 sm:px-8">
+      <div className="rounded-2xl border border-black/10 bg-paper px-6 py-10 sm:px-8">
         <p className="text-[11px] font-semibold tracking-[0.22em] text-ink/50 uppercase">
           {t("successEyebrow")}
         </p>
@@ -186,7 +186,7 @@ export function RegisterForm() {
       <button
         type="submit"
         disabled={pending}
-        className="btn-primary w-full disabled:cursor-wait disabled:opacity-70"
+        className="btn-dark w-full disabled:cursor-wait disabled:opacity-70"
       >
         {pending ? t("submitting") : t("submit")}
       </button>

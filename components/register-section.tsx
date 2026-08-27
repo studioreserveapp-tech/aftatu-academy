@@ -8,18 +8,16 @@ export function RegisterSection() {
   const { t } = useLanguage();
 
   return (
-    <section id="register" className="bg-paper">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:py-28">
+    <section id="register" className="bg-mist px-6 py-20 text-ink">
+      <div className="mx-auto grid max-w-4xl gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-start">
         <Reveal>
-          <p className="text-[11px] font-semibold tracking-[0.28em] text-ink/50 uppercase">
+          <p className="mb-4 text-[10px] font-medium tracking-[0.2em] uppercase">
             {t("registerEyebrow")}
           </p>
-          <h2 className="mt-4 font-serif text-4xl leading-[1.08] text-ink sm:text-5xl">
-            {t("registerTitle")}
-          </h2>
-          <p className="mt-6 max-w-md text-base leading-7 text-mute">{t("registerLead")}</p>
+          <h2 className="mb-4 font-serif text-4xl leading-tight">{t("registerTitle")}</h2>
+          <p className="text-sm font-light text-gray-600">{t("registerLead")}</p>
         </Reveal>
-        <Reveal delay={90}>
+        <Reveal delay={80}>
           <RegisterForm />
         </Reveal>
       </div>
