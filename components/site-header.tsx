@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BrandLockup } from "@/components/brand-lockup";
 import { LanguageToggle } from "@/components/language-toggle";
 import { useLanguage } from "@/components/language-provider";
 
@@ -13,12 +14,13 @@ export function SiteHeader() {
   return (
     <header className="absolute top-0 right-0 left-0 z-50 border-b border-white/20">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
-        <a href="#top" className="flex flex-col leading-none uppercase" onClick={close}>
-          <span className="text-xl font-black tracking-tight">{t("brandTop")}</span>
-          <span className="mt-[-2px] text-[10px] tracking-widest">{t("brandMid")}</span>
-          <span className="mt-[-2px] text-[6px] tracking-widest text-mute">
-            {t("brandBottom")}
-          </span>
+        <a
+          href="#top"
+          className="origin-left shrink-0 scale-90 sm:scale-100"
+          aria-label={t("brandName")}
+          onClick={close}
+        >
+          <BrandLockup />
         </a>
 
         <nav className="hidden items-center gap-6 text-sm text-soft md:flex">

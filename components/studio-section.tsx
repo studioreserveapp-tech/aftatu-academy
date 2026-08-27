@@ -1,5 +1,6 @@
 "use client";
 
+import { BrandLockup } from "@/components/brand-lockup";
 import { Reveal } from "@/components/reveal";
 import { useLanguage } from "@/components/language-provider";
 
@@ -12,6 +13,9 @@ export function StudioSection() {
         <p className="mb-8 text-[10px] tracking-[0.2em] text-mute uppercase">
           {t("studioEyebrow")}
         </p>
+        <div className="mb-6 flex justify-center">
+          <BrandLockup size="lg" />
+        </div>
         <p className="mb-4 text-sm text-soft">{t("studioLine")}</p>
         <blockquote className="font-serif text-2xl italic text-paper">
           “{t("studioQuote")}”

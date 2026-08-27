@@ -20,12 +20,18 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: messages.es.metaTitle,
   description: messages.es.metaDescription,
+  applicationName: messages.es.brandName,
+  icons: {
+    icon: [{ url: "/brand/af.png", type: "image/png" }],
+    apple: [{ url: "/brand/af.png" }],
+  },
   openGraph: {
     title: messages.es.metaTitle,
     description: messages.es.metaDescription,
     locale: "es_US",
     alternateLocale: ["en_US"],
     type: "website",
+    siteName: messages.es.brandName,
   },
 };
 
