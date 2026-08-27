@@ -3,6 +3,7 @@ import { CtaSection } from "@/components/cta-section";
 import { HeroVideo } from "@/components/hero-video";
 import { LearnSection } from "@/components/learn-section";
 import { MethodSection } from "@/components/method-section";
+import { NextPathSection } from "@/components/next-path-section";
 import { RegisterSection } from "@/components/register-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -20,6 +21,7 @@ export default function Home() {
         <StudioSection />
         <CourseSection />
         <MethodSection />
+        <NextPathSection />
         <CtaSection />
         <RegisterSection />
       </main>

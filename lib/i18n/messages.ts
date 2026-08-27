@@ -50,8 +50,8 @@ export const messages = {
     learnEyebrow: "What you’ll learn",
     learnTitle: "Foundations that hold up in a real studio.",
     learnLead:
-      "This is a beginner program. You learn hygiene, how to hold the machine, how to plant a clean line, and how to practice with patience. Real studio setting, professional tools, and close guidance in a small group.",
-    pill1: "Hygiene and safety",
+      "This is a beginner program. You learn hygiene and biosafety, how to hold the machine, how to plant a clean line, and how to practice with patience. Real studio setting, professional tools, and close guidance in a small group.",
+    pill1: "Hygiene and biosafety",
     pill2: "Line and stroke",
     pill3: "Machine control",
     pill4: "Practice on synthetic skin",
@@ -62,6 +62,12 @@ export const messages = {
     methodTitle: "A method built for beginners.",
     methodLead:
       "Two months. Three days a week. Two hours per class. In person in Minneapolis. Entirely in Spanish. Small groups. Limited seats.",
+    nextEyebrow: "After this course",
+    nextTitle: "A license apprenticeship, if you want to keep going.",
+    nextLead:
+      "This course does not allow you to tattoo people. Practice is on synthetic skin.",
+    nextBody:
+      "If you want to continue, you can apply to a separate apprenticeship — different process, different cost — to pursue Minnesota’s temporary tattoo technician license. There you tattoo real skin under supervision, start the hours the state requires, and can begin earning. Minnesota issues the license, not this course.",
     rhythmDuration: "Length",
     rhythmDurationValue: "Two months",
     rhythmPace: "Pace",
@@ -171,8 +177,8 @@ export const messages = {
     learnEyebrow: "Lo que aprenderás",
     learnTitle: "Técnicas que sostienen un oficio de verdad.",
     learnLead:
-      "Es un programa para principiantes. Aprendes higiene, cómo se sostiene la máquina, cómo se planta una línea limpia y cómo se practica con paciencia. Entorno real de estudio, herramientas profesionales y guía cercana en un grupo pequeño.",
-    pill1: "Higiene y seguridad",
+      "Es un programa para principiantes. Aprendes higiene y bioseguridad, cómo se sostiene la máquina, cómo se planta una línea limpia y cómo se practica con paciencia. Entorno real de estudio, herramientas profesionales y guía cercana en un grupo pequeño.",
+    pill1: "Higiene y bioseguridad",
     pill2: "Línea y trazo",
     pill3: "Control de la máquina",
     pill4: "Práctica en piel sintética",
@@ -183,6 +189,12 @@ export const messages = {
     methodTitle: "Un método pensado para principiantes.",
     methodLead:
       "Dos meses. Tres días por semana. Dos horas por clase. Presencial en Minneapolis. Completamente en español. Grupos pequeños. Cupo limitado.",
+    nextEyebrow: "Después de este curso",
+    nextTitle: "Un aprendizaje de licencia, si quieres seguir.",
+    nextLead:
+      "Este curso no autoriza a tatuar personas. Se practica en piel sintética.",
+    nextBody:
+      "Si quieres continuar, puedes entrar a un aprendizaje aparte —otro proceso y otro costo— para tramitar la licencia temporal de técnico de tatuaje en Minnesota. Ahí sí se tatúa piel real, siempre bajo supervisión, se empiezan las horas que pide el estado y se abre la puerta a generar ingresos. La licencia la emite Minnesota, no este curso.",
     rhythmDuration: "Duración",
     rhythmDurationValue: "Dos meses",
     rhythmPace: "Ritmo",
