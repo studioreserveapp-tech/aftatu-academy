@@ -10,8 +10,8 @@ export default function NotFound() {
         Esta página no existe.
       </h1>
       <p className="mt-5 max-w-md text-base leading-7 text-mute">
-        El curso está en la página principal: presencial en Minneapolis, solo en
-        español, dos meses, ocho personas.
+        El curso está en la página principal: presencial en Minneapolis,
+        completamente en español, dos meses. El cupo es limitado.
       </p>
       <Link
         href="/"
