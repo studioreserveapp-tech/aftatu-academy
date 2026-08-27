@@ -35,7 +35,7 @@ export const messages = {
     courseEyebrow: "The course",
     courseTitle: "You bring the machine. The studio covers the rest.",
     courseP1:
-      "The studio provides the materials you need for practice. Each student must have their own tattoo machine.",
+      "This course is theory and practice on fake skin only. You do not tattoo people. The studio provides the practice materials. Each student must have their own tattoo machine.",
     courseP2:
       "You don’t need prior experience. What matters is creativity: the urge to imagine, look closely, and dare to practice.",
     courseCta: "Reserve your seat",
@@ -50,7 +50,7 @@ export const messages = {
     learnEyebrow: "What you’ll learn",
     learnTitle: "Foundations that hold up in a real studio.",
     learnLead:
-      "This is a beginner program. You learn hygiene and biosafety, how to hold the machine, how to plant a clean line, and how to practice with patience. Real studio setting, professional tools, and close guidance in a small group.",
+      "This is a beginner program: theory and practice on fake skin only. You do not tattoo people. You learn hygiene and biosafety, how to hold the machine, how to plant a clean line, and how to practice with patience.",
     pill1: "Hygiene and biosafety",
     pill2: "Line and stroke",
     pill3: "Machine control",
@@ -62,12 +62,6 @@ export const messages = {
     methodTitle: "A method built for beginners.",
     methodLead:
       "Two months. Three days a week. Two hours per class. In person in Minneapolis. Entirely in Spanish. Small groups. Limited seats.",
-    nextEyebrow: "After this course",
-    nextTitle: "A license apprenticeship, if you want to keep going.",
-    nextLead:
-      "This course does not allow you to tattoo people. Practice is on synthetic skin.",
-    nextBody:
-      "If you want to continue, you can apply to a separate apprenticeship — different process, different cost — to pursue Minnesota’s temporary tattoo technician license. There you tattoo real skin under supervision, start the hours the state requires, and can begin earning. Minnesota issues the license, not this course.",
     rhythmDuration: "Length",
     rhythmDurationValue: "Two months",
     rhythmPace: "Pace",
@@ -86,7 +80,7 @@ export const messages = {
     rhythmLevelValue: "Beginner",
     ctaTitle: "Your place in the studio starts with one decision.",
     ctaLead: "Limited seats. In person only. Minneapolis, Minnesota.",
-    ctaNote: "No prior experience required. You bring your tattoo machine.",
+    ctaNote: "Theory and fake-skin practice only. You do not tattoo people.",
     registerEyebrow: "Registration",
     registerTitle: "Seats are limited. Leave your details.",
     registerLead:
@@ -162,7 +156,7 @@ export const messages = {
     courseEyebrow: "El curso",
     courseTitle: "Tú traes la máquina. El estudio, el material.",
     courseP1:
-      "El estudio proporciona el material necesario para las prácticas. Cada alumno debe contar con su propia máquina de tatuar.",
+      "Este curso es solo teoría y práctica en pieles falsas. No se tatúa a personas. El estudio proporciona el material de práctica. Cada alumno debe contar con su propia máquina de tatuar.",
     courseP2:
       "No necesitas experiencia previa. Lo que sí importa es la creatividad: ganas de imaginar, observar y atreverte a practicar.",
     courseCta: "Reserva tu lugar",
@@ -177,7 +171,7 @@ export const messages = {
     learnEyebrow: "Lo que aprenderás",
     learnTitle: "Técnicas que sostienen un oficio de verdad.",
     learnLead:
-      "Es un programa para principiantes. Aprendes higiene y bioseguridad, cómo se sostiene la máquina, cómo se planta una línea limpia y cómo se practica con paciencia. Entorno real de estudio, herramientas profesionales y guía cercana en un grupo pequeño.",
+      "Es un programa para principiantes: solo teoría y práctica en pieles falsas. No se tatúa a personas. Aprendes higiene y bioseguridad, cómo se sostiene la máquina, cómo se planta una línea limpia y cómo se practica con paciencia.",
     pill1: "Higiene y bioseguridad",
     pill2: "Línea y trazo",
     pill3: "Control de la máquina",
@@ -189,12 +183,6 @@ export const messages = {
     methodTitle: "Un método pensado para principiantes.",
     methodLead:
       "Dos meses. Tres días por semana. Dos horas por clase. Presencial en Minneapolis. Completamente en español. Grupos pequeños. Cupo limitado.",
-    nextEyebrow: "Después de este curso",
-    nextTitle: "Un aprendizaje de licencia, si quieres seguir.",
-    nextLead:
-      "Este curso no autoriza a tatuar personas. Se practica en piel sintética.",
-    nextBody:
-      "Si quieres continuar, puedes entrar a un aprendizaje aparte —otro proceso y otro costo— para tramitar la licencia temporal de técnico de tatuaje en Minnesota. Ahí sí se tatúa piel real, siempre bajo supervisión, se empiezan las horas que pide el estado y se abre la puerta a generar ingresos. La licencia la emite Minnesota, no este curso.",
     rhythmDuration: "Duración",
     rhythmDurationValue: "Dos meses",
     rhythmPace: "Ritmo",
@@ -213,7 +201,7 @@ export const messages = {
     rhythmLevelValue: "Principiante",
     ctaTitle: "Tu lugar en el estudio empieza con una decisión.",
     ctaLead: "Cupos limitados. Solo presencial. Minneapolis, Minnesota.",
-    ctaNote: "Sin experiencia previa. Tú traes tu máquina de tatuar.",
+    ctaNote: "Solo teoría y práctica en pieles falsas. No se tatúa a personas.",
     registerEyebrow: "Inscripción",
     registerTitle: "El cupo es limitado. Deja tus datos.",
     registerLead:
