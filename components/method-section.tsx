@@ -12,6 +12,7 @@ const FACTS: { label: MessageKey; value: MessageKey }[] = [
   { label: "rhythmLanguage", value: "rhythmLanguageValue" },
   { label: "rhythmSeats", value: "rhythmSeatsValue" },
   { label: "rhythmMaterials", value: "rhythmMaterialsValue" },
+  { label: "rhythmPrice", value: "rhythmPriceValue" },
   { label: "rhythmLevel", value: "rhythmLevelValue" },
 ];
 
