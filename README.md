@@ -21,7 +21,7 @@ Copia `.env.example` a `.env.local` (no se commitea):
 
 | Variable | Para qué |
 | --- | --- |
-| `BREVO_API_KEY` | API key de Brevo. Solo servidor. |
+| `BREVO_API` | API key de Brevo. Solo servidor. (`BREVO_API_KEY` still works as a fallback.) |
 | `BREVO_LIST_ID` | ID numérico de la lista `Aftatu Academy · Beginner course`. |
 | `BREVO_DEFAULT_COUNTRY_CODE` | Lada si el teléfono viene a 10 dígitos. Default `1` (US). |
 | `BREVO_SENDER_EMAIL` | Remitente verificado, solo si quieres aviso por mail. |

@@ -2,9 +2,9 @@
 const DEFAULT_COUNTRY_CODE = "1";
 
 export function getBrevoApiKey() {
-  const apiKey = process.env.BREVO_API_KEY?.trim();
+  const apiKey = process.env.BREVO_API?.trim() || process.env.BREVO_API_KEY?.trim();
   if (!apiKey) {
-    throw new Error("BREVO_API_KEY_MISSING");
+    throw new Error("BREVO_API_MISSING");
   }
   return apiKey;
 }
