@@ -16,7 +16,7 @@ import {
   type MessageKey,
 } from "@/lib/i18n/messages";
 
-const STORAGE_KEY = "aftatu-locale";
+const STORAGE_KEY = "aftatu-locale-v2";
 const CHANGE_EVENT = "aftatu-locale";
 
 function subscribe(onStoreChange: () => void) {
