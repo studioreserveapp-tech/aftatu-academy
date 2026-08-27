@@ -22,13 +22,13 @@ const instrument = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: messages.en.metaTitle,
-  description: messages.en.metaDescription,
+  title: messages.es.metaTitle,
+  description: messages.es.metaDescription,
   openGraph: {
-    title: messages.en.metaTitle,
-    description: messages.en.metaDescription,
-    locale: "en_US",
-    alternateLocale: ["es_MX", "es_US"],
+    title: messages.es.metaTitle,
+    description: messages.es.metaDescription,
+    locale: "es_US",
+    alternateLocale: ["en_US"],
     type: "website",
   },
 };
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} ${instrument.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-ink text-paper">

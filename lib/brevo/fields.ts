@@ -9,7 +9,7 @@ export const BREVO_CONTACT_ATTRIBUTES = {
   course: "COURSE",
 } as const;
 
-export const COURSE_ATTRIBUTE_VALUE = "principiantes-2m";
+export const COURSE_ATTRIBUTE_VALUE = "minneapolis-es-2m-8";
 
 export const BACKGROUND_OPTIONS = [
   { value: 1, label: "Starting from zero", formValue: "cero" },

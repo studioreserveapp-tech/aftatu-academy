@@ -7,6 +7,10 @@ const RHYTHM: { label: MessageKey; value: MessageKey }[] = [
   { label: "rhythmDuration", value: "rhythmDurationValue" },
   { label: "rhythmPace", value: "rhythmPaceValue" },
   { label: "rhythmSession", value: "rhythmSessionValue" },
+  { label: "rhythmPlace", value: "rhythmPlaceValue" },
+  { label: "rhythmLanguage", value: "rhythmLanguageValue" },
+  { label: "rhythmSeats", value: "rhythmSeatsValue" },
+  { label: "rhythmMaterials", value: "rhythmMaterialsValue" },
   { label: "rhythmLevel", value: "rhythmLevelValue" },
 ];
 
