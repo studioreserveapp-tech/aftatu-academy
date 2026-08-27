@@ -1,4 +1,4 @@
-# Aftatu Academy
+# Studio AZ Academy
 
 Landing for the beginner tattoo course. English is the default language; a header button switches to Spanish. Hero video, course copy, and a registration form at the bottom. Leads go to **Brevo**: email, SMS phone, and contact attributes.
 
@@ -22,14 +22,14 @@ Copia `.env.example` a `.env.local` (no se commitea):
 | Variable | Para qué |
 | --- | --- |
 | `BREVO_API` | API key de Brevo. Solo servidor. (`BREVO_API_KEY` still works as a fallback.) |
-| `BREVO_LIST_ID` | ID numérico de la lista `Aftatu Academy · Beginner course`. |
+| `BREVO_LIST_ID` | ID numérico de la lista `Studio AZ Academy · Beginner course`. |
 | `BREVO_DEFAULT_COUNTRY_CODE` | Lada si el teléfono viene a 10 dígitos. Default `1` (US). |
 | `BREVO_SENDER_EMAIL` | Remitente verificado, solo si quieres aviso por mail. |
 | `BREVO_NOTIFY_EMAIL` | A dónde llega el aviso de inscripción. |
 | `NEXT_PUBLIC_HERO_VIDEO_URL` | Video propio del estudio. Si no, se usa `/media/hero.mp4`. |
 
 En Brevo: Settings → SMTP & API → API Keys. El ID de lista está en Contacts → Lists.
-Nombre sugerido de la lista: **Aftatu Academy · Beginner course**. Pon `BREVO_LIST_ID` en Vercel (Production + Preview) cuando lo tengas; no hace falta hardcodear la API key en el repo.
+Nombre sugerido de la lista: **Studio AZ Academy · Beginner course**. Pon `BREVO_LIST_ID` en Vercel (Production + Preview) cuando lo tengas; no hace falta hardcodear la API key en el repo.
 
 Los atributos custom (`INSTAGRAM`, `PORTFOLIO`, `NOTE`, `BACKGROUND`, `COURSE`) se siguen creando solos en el primer registro si todavía no existen.
 

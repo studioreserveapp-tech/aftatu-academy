@@ -39,26 +39,6 @@ export function HeroVideo() {
         <p className="mt-7 max-w-xl text-base leading-7 text-paper/78 sm:text-lg">
           {t("heroLead")}
         </p>
-        <ul className="mt-8 flex max-w-3xl flex-wrap gap-2">
-          {(
-            [
-              "rhythmDurationValue",
-              "rhythmPaceValue",
-              "rhythmSessionValue",
-              "rhythmPlaceValue",
-              "rhythmLanguageValue",
-              "rhythmSeatsValue",
-              "rhythmMaterialsValue",
-            ] as const
-          ).map((key) => (
-            <li
-              key={key}
-              className="border border-paper/18 bg-ink/45 px-3 py-1.5 font-mono text-[10px] tracking-[0.16em] text-paper/88 uppercase"
-            >
-              {t(key)}
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   );

@@ -9,7 +9,8 @@ export function isLocale(value: string): value is Locale {
 
 export const messages = {
   en: {
-    metaTitle: "Aftatu Academy · In-person tattoo course in Minneapolis",
+    brandName: "Studio AZ Academy",
+    metaTitle: "Studio AZ Academy · In-person tattoo course in Minneapolis",
     metaDescription:
       "In-person tattoo course in Minneapolis, Minnesota. Two months, three classes a week, two hours per class, taught entirely in Spanish. Small groups. Limited seats. No prior experience required.",
     headerEnroll: "Enroll",
@@ -24,7 +25,7 @@ export const messages = {
     courseP1:
       "The studio provides the materials you need for practice. Each student must have their own tattoo machine.",
     courseP2:
-      "No portfolio and no prior experience. Show up, repeat the work, and let your hand settle.",
+      "You don’t need prior experience. What matters is creativity: the urge to imagine, look closely, and dare to practice.",
     courseCta: "I want to enroll",
     rhythmDuration: "Length",
     rhythmDurationValue: "Two months",
@@ -39,9 +40,9 @@ export const messages = {
     rhythmSeats: "Seats",
     rhythmSeatsValue: "Small groups",
     rhythmMaterials: "Materials",
-    rhythmMaterialsValue: "Practice supplies",
+    rhythmMaterialsValue: "All included",
     rhythmLevel: "Level",
-    rhythmLevelValue: "No experience",
+    rhythmLevelValue: "Beginner",
     registerEyebrow: "Registration",
     registerTitle: "Seats are limited. Leave your details.",
     registerLead:
@@ -86,11 +87,12 @@ export const messages = {
     errRateLimit: "Brevo is busy. Try again in a minute.",
     errBrevo: "We couldn’t save your details in Brevo. Check the form and try again.",
     errGeneric: "Something went wrong sending the registration. Try again.",
-    footerBrand: "Aftatu Academy · Beginner course",
+    footerBrand: "Studio AZ Academy · Beginner course",
     footerRhythm: "Minneapolis · in Spanish · limited seats",
   },
   es: {
-    metaTitle: "Aftatu Academy · Curso de tatuaje presencial en Minneapolis",
+    brandName: "Studio AZ Academy",
+    metaTitle: "Studio AZ Academy · Curso de tatuaje presencial en Minneapolis",
     metaDescription:
       "Curso presencial de tatuaje en Minneapolis, Minnesota. Dos meses, tres clases por semana, dos horas por clase, completamente en español. Grupos pequeños. Cupo limitado. No se necesita experiencia previa.",
     headerEnroll: "Inscribirme",
@@ -105,7 +107,7 @@ export const messages = {
     courseP1:
       "El estudio proporciona el material necesario para las prácticas. Cada alumno debe contar con su propia máquina de tatuar.",
     courseP2:
-      "No pedimos portafolio ni experiencia previa. Pedimos que te presentes a practicar hasta que la mano se asiente.",
+      "No necesitas experiencia previa. Lo que sí importa es la creatividad: ganas de imaginar, observar y atreverte a practicar.",
     courseCta: "Quiero inscribirme",
     rhythmDuration: "Duración",
     rhythmDurationValue: "Dos meses",
@@ -120,9 +122,9 @@ export const messages = {
     rhythmSeats: "Cupo",
     rhythmSeatsValue: "Grupos pequeños",
     rhythmMaterials: "Material",
-    rhythmMaterialsValue: "Para las prácticas",
+    rhythmMaterialsValue: "Todo incluido",
     rhythmLevel: "Nivel",
-    rhythmLevelValue: "Sin experiencia",
+    rhythmLevelValue: "Principiante",
     registerEyebrow: "Registro",
     registerTitle: "El cupo es limitado. Deja tus datos.",
     registerLead:
@@ -167,7 +169,7 @@ export const messages = {
     errRateLimit: "Brevo está saturado. Inténtalo de nuevo en un minuto.",
     errBrevo: "No pudimos guardar tus datos en Brevo. Revisa el formulario e inténtalo otra vez.",
     errGeneric: "Algo falló al enviar el registro. Inténtalo de nuevo.",
-    footerBrand: "Aftatu Academy · Curso de principiantes",
+    footerBrand: "Studio AZ Academy · Curso de principiantes",
     footerRhythm: "Minneapolis · en español · cupo limitado",
   },
 } as const;

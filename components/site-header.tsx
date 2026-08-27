@@ -10,7 +10,7 @@ export function SiteHeader() {
     <header className="absolute top-0 right-0 left-0 z-20">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6 sm:px-8">
         <a href="#top" className="font-serif text-xl tracking-tight text-paper">
-          Aftatu
+          {t("brandName")}
         </a>
         <div className="flex items-center gap-5">
           <LanguageToggle />
