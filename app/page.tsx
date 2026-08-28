@@ -6,7 +6,6 @@ import { MethodSection } from "@/components/method-section";
 import { RegisterSection } from "@/components/register-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { StudioSection } from "@/components/studio-section";
 import { TrustBar } from "@/components/trust-bar";
 
 export default function Home() {
@@ -17,7 +16,6 @@ export default function Home() {
         <HeroVideo />
         <TrustBar />
         <LearnSection />
-        <StudioSection />
         <CourseSection />
         <MethodSection />
         <CtaSection />

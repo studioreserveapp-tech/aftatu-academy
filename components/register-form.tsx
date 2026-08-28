@@ -28,11 +28,11 @@ export function RegisterForm() {
 
   if (state.status === "success") {
     return (
-      <div className="rounded-2xl border border-black/10 bg-paper px-6 py-10 sm:px-8">
-        <p className="text-[11px] font-semibold tracking-[0.22em] text-ink/50 uppercase">
+      <div className="border border-black/10 bg-paper px-6 py-10 sm:px-8">
+        <p className="text-[11px] font-medium tracking-[0.16em] text-ink/50 uppercase">
           {t("successEyebrow")}
         </p>
-        <h3 className="mt-4 font-serif text-3xl text-ink">{t("successTitle")}</h3>
+        <h3 className="mt-4 text-3xl font-bold tracking-tight text-ink">{t("successTitle")}</h3>
         <p className="mt-4 max-w-md text-base leading-7 text-mute">
           {state.message ?? t("successMessage")}
         </p>
@@ -61,7 +61,7 @@ export function RegisterForm() {
             name="firstName"
             autoComplete="given-name"
             required
-            className={`field ${state.fieldErrors?.firstName ? "field-error" : ""}`}
+            className={`input input-bordered w-full rounded-none bg-paper text-ink ${state.fieldErrors?.firstName ? "input-error" : ""}`}
           />
           <FieldError message={state.fieldErrors?.firstName} />
         </label>
@@ -73,7 +73,7 @@ export function RegisterForm() {
             name="lastName"
             autoComplete="family-name"
             required
-            className={`field ${state.fieldErrors?.lastName ? "field-error" : ""}`}
+            className={`input input-bordered w-full rounded-none bg-paper text-ink ${state.fieldErrors?.lastName ? "input-error" : ""}`}
           />
           <FieldError message={state.fieldErrors?.lastName} />
         </label>
@@ -89,7 +89,7 @@ export function RegisterForm() {
             type="email"
             autoComplete="email"
             required
-            className={`field ${state.fieldErrors?.email ? "field-error" : ""}`}
+            className={`input input-bordered w-full rounded-none bg-paper text-ink ${state.fieldErrors?.email ? "input-error" : ""}`}
           />
           <FieldError message={state.fieldErrors?.email} />
         </label>
@@ -104,7 +104,7 @@ export function RegisterForm() {
             inputMode="tel"
             placeholder={t("phonePlaceholder")}
             required
-            className={`field ${state.fieldErrors?.phone ? "field-error" : ""}`}
+            className={`input input-bordered w-full rounded-none bg-paper text-ink ${state.fieldErrors?.phone ? "input-error" : ""}`}
           />
           <FieldError message={state.fieldErrors?.phone} />
         </label>
@@ -122,7 +122,7 @@ export function RegisterForm() {
             name="instagram"
             autoComplete="off"
             placeholder={t("instagramPlaceholder")}
-            className={`field pl-9 ${state.fieldErrors?.instagram ? "field-error" : ""}`}
+            className={`input input-bordered w-full rounded-none bg-paper pl-9 text-ink ${state.fieldErrors?.instagram ? "input-error" : ""}`}
           />
         </div>
         <FieldError message={state.fieldErrors?.instagram} />
@@ -161,7 +161,7 @@ export function RegisterForm() {
           name="portfolio"
           type="text"
           placeholder={t("portfolioPlaceholder")}
-          className={`field ${state.fieldErrors?.portfolio ? "field-error" : ""}`}
+          className={`input input-bordered w-full rounded-none bg-paper text-ink ${state.fieldErrors?.portfolio ? "input-error" : ""}`}
         />
         <FieldError message={state.fieldErrors?.portfolio} />
       </label>
@@ -174,7 +174,7 @@ export function RegisterForm() {
           name="note"
           rows={4}
           placeholder={t("notePlaceholder")}
-          className={`field resize-y ${state.fieldErrors?.note ? "field-error" : ""}`}
+          className={`textarea textarea-bordered w-full rounded-none bg-paper text-ink ${state.fieldErrors?.note ? "textarea-error" : ""}`}
         />
         <FieldError message={state.fieldErrors?.note} />
       </label>
@@ -186,7 +186,7 @@ export function RegisterForm() {
       <button
         type="submit"
         disabled={pending}
-        className="btn-dark w-full disabled:cursor-wait disabled:opacity-70"
+        className="btn btn-neutral w-full rounded-none disabled:cursor-wait disabled:opacity-70"
       >
         {pending ? t("submitting") : t("submit")}
       </button>

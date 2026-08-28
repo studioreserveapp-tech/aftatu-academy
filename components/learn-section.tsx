@@ -12,6 +12,7 @@ const PILLS = [
   "pill6",
   "pill7",
   "pill8",
+  "pill9",
 ] as const;
 
 export function LearnSection() {
@@ -23,7 +24,7 @@ export function LearnSection() {
         <p className="mb-8 text-[10px] font-medium tracking-[0.2em] uppercase">
           {t("learnEyebrow")}
         </p>
-        <h2 className="mb-6 font-serif text-4xl leading-tight">{t("learnTitle")}</h2>
+        <h2 className="mb-6 text-4xl leading-tight font-bold tracking-tight">{t("learnTitle")}</h2>
         <p className="mx-auto mb-10 max-w-lg text-sm font-light text-gray-600">
           {t("learnLead")}
         </p>

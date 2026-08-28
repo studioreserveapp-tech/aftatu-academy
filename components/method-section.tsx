@@ -13,7 +13,6 @@ const FACTS: { label: MessageKey; value: MessageKey }[] = [
   { label: "rhythmSeats", value: "rhythmSeatsValue" },
   { label: "rhythmMaterials", value: "rhythmMaterialsValue" },
   { label: "rhythmPrice", value: "rhythmPriceValue" },
-  { label: "rhythmLevel", value: "rhythmLevelValue" },
 ];
 
 export function MethodSection() {
@@ -25,17 +24,17 @@ export function MethodSection() {
         <p className="mb-6 text-center text-[10px] tracking-[0.2em] text-mute uppercase">
           {t("methodEyebrow")}
         </p>
-        <h2 className="mb-4 text-center font-serif text-4xl">{t("methodTitle")}</h2>
+        <h2 className="mb-4 text-center text-4xl font-bold tracking-tight">{t("methodTitle")}</h2>
         <p className="mx-auto mb-12 max-w-lg text-center text-sm font-light text-soft">
           {t("methodLead")}
         </p>
-        <dl className="grid gap-px overflow-hidden rounded-2xl bg-line sm:grid-cols-2">
+        <dl className="grid gap-px overflow-hidden bg-line sm:grid-cols-2">
           {FACTS.map((item) => (
             <div key={item.label} className="bg-ink px-6 py-6">
-              <dt className="text-[10px] tracking-[0.18em] text-mute uppercase">
+              <dt className="text-[11px] font-medium tracking-[0.14em] text-mute uppercase">
                 {t(item.label)}
               </dt>
-              <dd className="mt-2 font-serif text-2xl">{t(item.value)}</dd>
+              <dd className="mt-2 text-2xl font-bold tracking-tight">{t(item.value)}</dd>
             </div>
           ))}
         </dl>
