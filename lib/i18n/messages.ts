@@ -54,7 +54,7 @@ export const messages = {
     learnEyebrow: "What you’ll learn",
     learnTitle: "Foundations to start in tattooing.",
     learnLead:
-      "A hands-on beginner program. You learn step by step, with close attention: from setting up your station to creating designs and applying them on synthetic skin. No prior experience needed. This course is theory and fake-skin practice only. You do not tattoo people.",
+      "A hands-on beginner program. You learn step by step, with close attention: from setting up your station to creating designs and applying them on synthetic skin. No prior experience needed. This course is theory and fake-skin practice only. You do not tattoo people. The program to get licensed and tattoo people is a separate course, also offered at Studio AZ.",
     pill1: "Hygiene and biosafety",
     pill2: "Tattoo styles",
     pill3: "Machines, needles, and voltage",
@@ -183,7 +183,7 @@ export const messages = {
     learnEyebrow: "Lo que aprenderás",
     learnTitle: "Fundamentos para empezar en el tatuaje.",
     learnLead:
-      "Un programa práctico para principiantes. Se aprende paso a paso, con atención personalizada: desde armar bien la estación hasta crear diseños y aplicarlos en piel sintética. No necesitas experiencia previa. Este curso es solo teoría y práctica en pieles falsas. No se tatúa a personas.",
+      "Un programa práctico para principiantes. Se aprende paso a paso, con atención personalizada: desde armar bien la estación hasta crear diseños y aplicarlos en piel sintética. No necesitas experiencia previa. Este curso es solo teoría y práctica en pieles falsas. No se tatúa a personas. El programa para obtener la licencia y tatuar personas es un programa aparte, que también se ofrece en Studio AZ.",
     pill1: "Higiene y bioseguridad",
     pill2: "Estilos de tatuaje",
     pill3: "Máquinas, agujas y voltaje",
