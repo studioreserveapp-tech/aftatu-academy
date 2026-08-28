@@ -24,8 +24,8 @@ export function MethodSection() {
         <p className="mb-6 text-center text-[10px] tracking-[0.2em] text-mute uppercase">
           {t("methodEyebrow")}
         </p>
-        <h2 className="mb-4 text-center text-4xl font-bold tracking-tight">{t("methodTitle")}</h2>
-        <p className="mx-auto mb-12 max-w-lg text-center text-sm font-light text-soft">
+        <h2 className="mb-4 text-center text-5xl font-thin tracking-[-0.02em] uppercase">{t("methodTitle")}</h2>
+        <p className="mx-auto mb-12 max-w-xl text-center text-lg font-light leading-relaxed text-soft">
           {t("methodLead")}
         </p>
         <dl className="grid gap-px overflow-hidden bg-line sm:grid-cols-2">
@@ -34,7 +34,7 @@ export function MethodSection() {
               <dt className="text-[11px] font-medium tracking-[0.14em] text-mute uppercase">
                 {t(item.label)}
               </dt>
-              <dd className="mt-2 text-2xl font-bold tracking-tight">{t(item.value)}</dd>
+              <dd className="mt-2 text-2xl font-thin tracking-[-0.02em] uppercase">{t(item.value)}</dd>
             </div>
           ))}
         </dl>

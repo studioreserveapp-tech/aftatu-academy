@@ -32,7 +32,7 @@ export function RegisterForm() {
         <p className="text-[11px] font-medium tracking-[0.16em] text-ink/50 uppercase">
           {t("successEyebrow")}
         </p>
-        <h3 className="mt-4 text-3xl font-bold tracking-tight text-ink">{t("successTitle")}</h3>
+        <h3 className="mt-4 text-3xl font-thin tracking-[-0.02em] uppercase text-ink">{t("successTitle")}</h3>
         <p className="mt-4 max-w-md text-base leading-7 text-mute">
           {state.message ?? t("successMessage")}
         </p>

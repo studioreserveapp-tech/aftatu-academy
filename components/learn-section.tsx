@@ -24,8 +24,8 @@ export function LearnSection() {
         <p className="mb-8 text-[10px] font-medium tracking-[0.2em] uppercase">
           {t("learnEyebrow")}
         </p>
-        <h2 className="mb-6 text-4xl leading-tight font-bold tracking-tight">{t("learnTitle")}</h2>
-        <p className="mx-auto mb-10 max-w-lg text-sm font-light text-gray-600">
+        <h2 className="mb-6 text-5xl leading-tight font-thin tracking-[-0.02em] uppercase">{t("learnTitle")}</h2>
+        <p className="mx-auto mb-10 max-w-xl text-lg font-light leading-relaxed text-gray-600">
           {t("learnLead")}
         </p>
         <div className="flex flex-wrap justify-center gap-3">

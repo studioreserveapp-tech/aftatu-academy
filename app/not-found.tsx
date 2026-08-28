@@ -8,8 +8,8 @@ export default function NotFound() {
         <BrandLockup />
       </div>
       <p className="text-[10px] tracking-[0.2em] text-mute uppercase">404</p>
-      <h1 className="mt-4 text-4xl font-bold tracking-tight">Esta página no existe.</h1>
-      <p className="mt-5 text-sm font-light text-soft">
+      <h1 className="mt-4 text-5xl font-thin tracking-[-0.02em] uppercase">Esta página no existe.</h1>
+      <p className="mt-5 text-lg font-light leading-relaxed text-soft">
         El curso está en la página principal: presencial en Minneapolis,
         completamente en español, dos meses. El cupo es limitado.
       </p>

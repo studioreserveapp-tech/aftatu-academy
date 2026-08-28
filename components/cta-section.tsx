@@ -9,7 +9,7 @@ export function CtaSection() {
   return (
     <section className="bg-mist px-6 py-16 text-center text-ink">
       <Reveal className="mx-auto max-w-md">
-        <h2 className="mb-8 text-3xl font-bold tracking-tight">{t("ctaTitle")}</h2>
+        <h2 className="mb-8 text-4xl font-thin tracking-[-0.02em] uppercase sm:text-5xl">{t("ctaTitle")}</h2>
         <a href="#register" className="btn btn-neutral mb-6 w-full max-w-[280px] rounded-none">
           {t("courseCta")}
         </a>

@@ -53,13 +53,24 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--ink);
   color: var(--paper);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
+  font-weight: 300;
+  transform: scaleY(1.04);
+  transform-origin: top center;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 100;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 ::selection {

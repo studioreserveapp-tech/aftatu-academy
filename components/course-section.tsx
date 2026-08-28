@@ -21,10 +21,10 @@ export function CourseSection() {
           <p className="mb-6 text-[10px] font-medium tracking-[0.2em] uppercase">
             {t("courseEyebrow")}
           </p>
-          <h2 className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight sm:text-5xl">
+          <h2 className="mb-6 text-5xl leading-[1.1] font-thin tracking-[-0.02em] uppercase sm:text-6xl">
             {t("courseTitle")}
           </h2>
-          <p className="mb-4 max-w-md text-sm font-light leading-relaxed text-gray-600">
+          <p className="mb-4 max-w-md text-lg font-light leading-relaxed text-gray-600">
             {t("courseP1")}
           </p>
           <p className="mb-8 text-[11px] tracking-[0.14em] text-gray-500 uppercase">
@@ -39,8 +39,8 @@ export function CourseSection() {
           {CARDS.map((card) => (
             <li key={card.title} className="bg-paper p-6 sm:p-7">
               <p className="mb-4 text-2xl font-light text-ink/30">{card.index}</p>
-              <h3 className="mb-2 text-2xl leading-tight font-bold tracking-tight">{t(card.title)}</h3>
-              <p className="text-sm font-light leading-relaxed text-gray-600">
+              <h3 className="mb-2 text-2xl leading-tight font-thin tracking-[-0.02em] uppercase">{t(card.title)}</h3>
+              <p className="text-base font-light leading-relaxed text-gray-600">
                 {t(card.body)}
               </p>
             </li>
