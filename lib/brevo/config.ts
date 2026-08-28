@@ -33,6 +33,6 @@ export function getSender() {
   if (!email) return undefined;
   return {
     email,
-    name: process.env.BREVO_SENDER_NAME?.trim() || "AF · Studio AZ",
+    name: process.env.BREVO_SENDER_NAME?.trim() || "Andre Fernan · Studio AZ",
   };
 }
