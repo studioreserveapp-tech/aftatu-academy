@@ -35,7 +35,7 @@ export const messages = {
     courseEyebrow: "The course",
     courseTitle: "The studio gives you your first kit.",
     courseP1:
-      "One monthly payment opens the studio: face-to-face classes, practice materials, and a welcome kit with your own tattoo machine. The hand is trained on synthetic skin — not on people. You don’t need experience. You need the will to come back.",
+      "One monthly payment opens the studio: face-to-face classes, practice materials, and a welcome kit with your own tattoo machine. The hand is trained on synthetic skin — not on people. You don’t need experience.",
     courseP2: "Theory and synthetic-skin practice only.",
     courseCta: "Reserve your seat",
     courseSectionCta: "I want that seat",
@@ -150,6 +150,7 @@ export const messages = {
     errGeneric: "Something went wrong sending the registration. Try again.",
     footerBrand: "Andre Fernan · Studio AZ © 2026",
     footerRhythm: "Minneapolis · Spanish · limited seats",
+    footerAddress: "333 Washington Ave N, STE 100 · Minneapolis, MN 55401",
     footerContact: "Contact",
   },
   es: {
@@ -179,7 +180,7 @@ export const messages = {
     courseEyebrow: "El curso",
     courseTitle: "El primer equipo te lo da el estudio.",
     courseP1:
-      "Una mensualidad y el estudio se abre: clases frente a frente, material para practicar y un kit de bienvenida con tu propia máquina. El pulso se entrena en piel sintética, no en personas. No hace falta que sepas. Hace falta que quieras volver.",
+      "Una mensualidad y el estudio se abre: clases frente a frente, material para practicar y un kit de bienvenida con tu propia máquina. El pulso se entrena en piel sintética, no en personas. No hace falta que sepas.",
     courseP2: "Solo teoría y práctica en piel sintética.",
     courseCta: "Reserva tu lugar",
     courseSectionCta: "Quiero ese lugar",
@@ -294,6 +295,7 @@ export const messages = {
     errGeneric: "Algo falló al enviar el registro. Inténtalo de nuevo.",
     footerBrand: "Andre Fernan · Studio AZ © 2026",
     footerRhythm: "Minneapolis · en español · cupo limitado",
+    footerAddress: "333 Washington Ave N, STE 100 · Minneapolis, MN 55401",
     footerContact: "Contacto",
   },
 } as const;
