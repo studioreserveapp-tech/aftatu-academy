@@ -11,7 +11,7 @@ El browser nunca habla con Brevo. El formulario manda un Server Action; el servi
 3. Hace `POST /v3/contacts` con `updateEnabled: true` para upsert.
 4. Mete el teléfono en `attributes.SMS` con código de país (Brevo no acepta teléfono suelto).
 5. Si hay `BREVO_LIST_ID`, agrega el contacto a esa lista.
-6. Si hay sender + notify, manda un mail transaccional al estudio.
+6. Si hay `BREVO_SENDER_EMAIL` (remitente verificado en Brevo), manda un mail de gracias al interesado. Si también hay `BREVO_NOTIFY_EMAIL`, avisa al estudio.
 
 Atributos que Brevo ya trae: `FNAME`, `LNAME`, `SMS`. Los demás se crean la primera vez que alguien se registra.
 
@@ -24,7 +24,7 @@ Copia `.env.example` a `.env.local` (no se commitea):
 | `BREVO_API` | API key de Brevo. Solo servidor. (`BREVO_API_KEY` still works as a fallback.) |
 | `BREVO_LIST_ID` | ID numérico de la lista `Studio AZ Academy · Beginner course`. |
 | `BREVO_DEFAULT_COUNTRY_CODE` | Lada si el teléfono viene a 10 dígitos. Default `1` (US). |
-| `BREVO_SENDER_EMAIL` | Remitente verificado, solo si quieres aviso por mail. |
+| `BREVO_SENDER_EMAIL` | Remitente verificado en Brevo. Necesario para el mail de gracias al alumno y el aviso al estudio. |
 | `BREVO_NOTIFY_EMAIL` | A dónde llega el aviso de inscripción. |
 | `NEXT_PUBLIC_HERO_VIDEO_URL` | Video propio del estudio. Si no, se usa `/media/hero.mp4`. |
 
