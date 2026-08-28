@@ -1,8 +1,6 @@
 "use server";
 
-import { upsertCourseLead } from "@/lib/brevo/contacts";
-import { mapBrevoError } from "@/lib/brevo/errors";
-import { notifyNewLead, thankLead } from "@/lib/brevo/notify";
+import { FORMSUBMIT_INBOX, SITE_URL, formSubmitAjaxUrl } from "@/lib/formsubmit";
 import { t } from "@/lib/i18n/messages";
 import { readRegisterForm, resolveLocale } from "@/lib/register/schema";
 
@@ -36,18 +34,60 @@ export async function registerLead(
     };
   }
 
+  const lead = parsed.data;
+  const fullName = `${lead.firstName} ${lead.lastName}`;
+  const autoresponse = [
+    locale === "es" ? `Hola ${lead.firstName},` : `Hi ${lead.firstName},`,
+    "",
+    t(locale, "thanksBody"),
+    "",
+    t(locale, "brandName"),
+    SITE_URL,
+  ].join("\n");
+
   try {
-    await upsertCourseLead(parsed.data);
-    await thankLead(parsed.data, locale).catch(() => undefined);
-    await notifyNewLead(parsed.data).catch(() => undefined);
+    const response = await fetch(formSubmitAjaxUrl(), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Origin: SITE_URL,
+        Referer: `${SITE_URL}/`,
+      },
+      body: JSON.stringify({
+        _subject:
+          locale === "es"
+            ? `Nueva inscripción · ${fullName}`
+            : `New enrollment · ${fullName}`,
+        _template: "table",
+        _captcha: "false",
+        _autoresponse: autoresponse,
+        _honey: "",
+        name: fullName,
+        email: lead.email,
+        phone: lead.phone,
+        instagram: lead.instagram ? `@${lead.instagram}` : "",
+        background: lead.background,
+        portfolio: lead.portfolio,
+        note: lead.note,
+        locale,
+        website: SITE_URL,
+        to: FORMSUBMIT_INBOX,
+      }),
+    });
+
+    if (!response.ok) {
+      return { status: "error", message: t(locale, "errSubmit") };
+    }
+
     return {
       status: "success",
       message: t(locale, "successMessage"),
     };
-  } catch (error) {
+  } catch {
     return {
       status: "error",
-      message: mapBrevoError(error, locale),
+      message: t(locale, "errSubmit"),
     };
   }
 }

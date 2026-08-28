@@ -1,8 +1,11 @@
-import { getDefaultCountryCode } from "../brevo/config";
 import {
   BACKGROUND_OPTIONS,
   type BackgroundFormValue,
-} from "../brevo/fields";
+} from "./background";
+
+export function getDefaultCountryCode() {
+  return "1";
+}
 
 export function normalizeName(value: string) {
   return value.trim().replace(/\s+/g, " ");
@@ -58,6 +61,3 @@ export function parseBackground(value: string): BackgroundFormValue {
   return match?.formValue ?? "cero";
 }
 
-export function backgroundToBrevoValue(value: BackgroundFormValue) {
-  return BACKGROUND_OPTIONS.find((option) => option.formValue === value)?.value ?? 1;
-}

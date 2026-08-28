@@ -3,7 +3,7 @@
 import { useActionState } from "react";
 import { registerLead, type RegisterState } from "@/app/actions/register";
 import { useLanguage } from "@/components/language-provider";
-import { BACKGROUND_OPTIONS } from "@/lib/brevo/fields";
+import { BACKGROUND_OPTIONS } from "@/lib/register/background";
 import type { MessageKey } from "@/lib/i18n/messages";
 
 const initialState: RegisterState = { status: "idle" };

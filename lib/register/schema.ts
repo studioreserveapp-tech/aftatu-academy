@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { BACKGROUND_OPTIONS } from "@/lib/brevo/fields";
+import { BACKGROUND_OPTIONS } from "@/lib/register/background";
 import { defaultLocale, isLocale, t, type Locale, type MessageKey } from "@/lib/i18n/messages";
 import {
   normalizeEmail,

@@ -1,46 +1,20 @@
-# Studio AZ Academy
+# Minneapolis Tattoo Academy
 
-Landing for the beginner tattoo course. English is the default language; a header button switches to Spanish. Hero video, course copy, and a registration form at the bottom. Leads go to **Brevo**: email, SMS phone, and contact attributes.
+Landing del curso de tatuaje para principiantes. Español por defecto; el header cambia a inglés. El formulario de inscripción va a **FormSubmit** (`refernantattoo@gmail.com`).
 
 ## Cómo está armado
 
-El browser nunca habla con Brevo. El formulario manda un Server Action; el servidor:
+El formulario manda un Server Action. El servidor:
 
-1. Valida y normaliza (email en minúsculas, Instagram sin `@`, teléfono con lada).
-2. Crea en Brevo los atributos custom si no existen (`INSTAGRAM`, `PORTFOLIO`, `NOTE`, `BACKGROUND`, `COURSE`).
-3. Hace `POST /v3/contacts` con `updateEnabled: true` para upsert.
-4. Mete el teléfono en `attributes.SMS` con código de país (Brevo no acepta teléfono suelto).
-5. Si hay `BREVO_LIST_ID`, agrega el contacto a esa lista.
-6. Si hay `BREVO_SENDER_EMAIL` (remitente verificado en Brevo), manda un mail de gracias al interesado. Si también hay `BREVO_NOTIFY_EMAIL`, avisa al estudio.
+1. Valida y normaliza (email, Instagram, teléfono).
+2. Envía los datos a [FormSubmit](https://formsubmit.co/documentation).
+3. FormSubmit escribe a `refernantattoo@gmail.com` y manda una **confirmación automática** al email del interesado (`_autoresponse`).
 
-Atributos que Brevo ya trae: `FNAME`, `LNAME`, `SMS`. Los demás se crean la primera vez que alguien se registra.
-
-## Variables
-
-Copia `.env.example` a `.env.local` (no se commitea):
-
-| Variable | Para qué |
-| --- | --- |
-| `BREVO_API` | API key de Brevo. Solo servidor. (`BREVO_API_KEY` still works as a fallback.) |
-| `BREVO_LIST_ID` | ID numérico de la lista `Studio AZ Academy · Beginner course`. |
-| `BREVO_DEFAULT_COUNTRY_CODE` | Lada si el teléfono viene a 10 dígitos. Default `1` (US). |
-| `BREVO_SENDER_EMAIL` | Remitente verificado en Brevo. Necesario para el mail de gracias al alumno y el aviso al estudio. |
-| `BREVO_NOTIFY_EMAIL` | A dónde llega el aviso de inscripción. |
-| `NEXT_PUBLIC_HERO_VIDEO_URL` | Video propio del estudio. Si no, se usa `/media/hero.mp4`. |
-
-En Brevo: Settings → SMTP & API → API Keys. El ID de lista está en Contacts → Lists.
-Nombre sugerido de la lista: **Studio AZ Academy · Beginner course**. Pon `BREVO_LIST_ID` en Vercel (Production + Preview) cuando lo tengas; no hace falta hardcodear la API key en el repo.
-
-Los atributos custom (`INSTAGRAM`, `PORTFOLIO`, `NOTE`, `BACKGROUND`, `COURSE`) se siguen creando solos en el primer registro si todavía no existen.
+La primera vez hay que abrir el correo de activación que FormSubmit manda a `refernantattoo@gmail.com` y confirmar el formulario. El dominio del sitio es `https://www.minneapolistattooacademy.com/`.
 
 ## Local
 
 ```bash
 npm install
-cp .env.example .env.local
 npm run dev
 ```
-
-## Video del hero
-
-El clip de `public/media/hero.mp4` es un loop de stills de estudio (Pexels / Unsplash). Sustitúyelo por footage propio o pon `NEXT_PUBLIC_HERO_VIDEO_URL`.

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { getDefaultCountryCode } from "../brevo/config";
+import { getDefaultCountryCode } from "./normalize";
 import {
   normalizeEmail,
   normalizeInstagram,
