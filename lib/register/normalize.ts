@@ -1,6 +1,8 @@
 import {
   BACKGROUND_OPTIONS,
+  SCHEDULE_OPTIONS,
   type BackgroundFormValue,
+  type ScheduleFormValue,
 } from "./background";
 
 export function getDefaultCountryCode() {
@@ -59,5 +61,10 @@ export function normalizePhone(value: string, countryCode = getDefaultCountryCod
 export function parseBackground(value: string): BackgroundFormValue {
   const match = BACKGROUND_OPTIONS.find((option) => option.formValue === value);
   return match?.formValue ?? "cero";
+}
+
+export function parseSchedule(value: string): ScheduleFormValue {
+  const match = SCHEDULE_OPTIONS.find((option) => option.formValue === value);
+  return match?.formValue ?? "manana";
 }
 

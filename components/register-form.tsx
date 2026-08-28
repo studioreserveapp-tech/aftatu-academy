@@ -3,7 +3,7 @@
 import { useCallback, useState, type FormEvent } from "react";
 import { RegisterSuccess } from "@/components/register-success";
 import { useLanguage } from "@/components/language-provider";
-import { BACKGROUND_OPTIONS } from "@/lib/register/background";
+import { BACKGROUND_OPTIONS, SCHEDULE_OPTIONS } from "@/lib/register/background";
 import { submitRegistration, type RegisterResult } from "@/lib/register/submit";
 import { smoothScrollTo } from "@/lib/scroll-to";
 import type { MessageKey } from "@/lib/i18n/messages";
@@ -21,6 +21,13 @@ const BACKGROUND_COPY: Record<
   tatuador: { label: "backgroundTatuador", help: "backgroundTatuadorHelp" },
 };
 
+const SCHEDULE_COPY: Record<
+  (typeof SCHEDULE_OPTIONS)[number]["formValue"],
+  { label: MessageKey; help: MessageKey }
+> = {
+  manana: { label: "scheduleMorning", help: "scheduleMorningHelp" },
+  tarde: { label: "scheduleEvening", help: "scheduleEveningHelp" },
+};
 
 function FieldError({ message }: { message?: string }) {
   if (!message) return null;
@@ -161,6 +168,31 @@ export function RegisterForm() {
                   name="background"
                   value={option.formValue}
                   defaultChecked={option.formValue === "cero"}
+                />
+                <span>
+                  <span className="block text-sm text-ink">{t(copy.label)}</span>
+                  <span className="mt-1 block text-sm text-mute">{t(copy.help)}</span>
+                </span>
+              </label>
+            );
+          })}
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend className="mb-3 text-[10px] font-semibold tracking-[0.22em] text-mute uppercase">
+          {t("fieldSchedule")}
+        </legend>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {SCHEDULE_OPTIONS.map((option) => {
+            const copy = SCHEDULE_COPY[option.formValue];
+            return (
+              <label key={option.formValue} className="choice">
+                <input
+                  type="radio"
+                  name="schedule"
+                  value={option.formValue}
+                  defaultChecked={option.formValue === "manana"}
                 />
                 <span>
                   <span className="block text-sm text-ink">{t(copy.label)}</span>

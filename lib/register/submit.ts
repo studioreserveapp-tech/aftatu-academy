@@ -1,5 +1,9 @@
 import { FORMSUBMIT_INBOX, SITE_URL, formSubmitAjaxUrl } from "@/lib/formsubmit";
 import { t, type Locale } from "@/lib/i18n/messages";
+import {
+  BACKGROUND_EMAIL_LABELS,
+  SCHEDULE_EMAIL_LABELS,
+} from "@/lib/register/background";
 import { readRegisterForm } from "@/lib/register/schema";
 
 export type RegisterResult =
@@ -58,7 +62,8 @@ export async function submitRegistration(
         Email: lead.email,
         Telefono: lead.phone,
         Instagram: lead.instagram ? `@${lead.instagram}` : "—",
-        Experiencia: lead.background,
+        Experiencia: BACKGROUND_EMAIL_LABELS[lead.background],
+        Horario: SCHEDULE_EMAIL_LABELS[lead.schedule],
         Portfolio: lead.portfolio || "—",
         Nota: lead.note || "—",
         Idioma: locale,

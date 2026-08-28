@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { BACKGROUND_OPTIONS } from "@/lib/register/background";
+import { BACKGROUND_OPTIONS, SCHEDULE_OPTIONS } from "@/lib/register/background";
 import { defaultLocale, isLocale, t, type Locale, type MessageKey } from "@/lib/i18n/messages";
 import {
   normalizeEmail,
@@ -8,11 +8,17 @@ import {
   normalizePhone,
   normalizePortfolio,
   parseBackground,
+  parseSchedule,
 } from "@/lib/register/normalize";
 
 const backgroundValues = BACKGROUND_OPTIONS.map((option) => option.formValue) as [
   (typeof BACKGROUND_OPTIONS)[number]["formValue"],
   ...(typeof BACKGROUND_OPTIONS)[number]["formValue"][],
+];
+
+const scheduleValues = SCHEDULE_OPTIONS.map((option) => option.formValue) as [
+  (typeof SCHEDULE_OPTIONS)[number]["formValue"],
+  ...(typeof SCHEDULE_OPTIONS)[number]["formValue"][],
 ];
 
 const FIELD_ERRORS: Record<string, MessageKey> = {
@@ -64,6 +70,7 @@ export function registerSchema(locale: Locale) {
       .transform(normalizeInstagram)
       .pipe(z.string().max(30, msg("instagramLong"))),
     background: z.enum(backgroundValues).catch("cero"),
+    schedule: z.enum(scheduleValues).catch("manana"),
     portfolio: z
       .string()
       .transform(normalizePortfolio)
@@ -88,6 +95,7 @@ export function readRegisterForm(formData: FormData) {
       phone: String(formData.get("phone") ?? ""),
       instagram: String(formData.get("instagram") ?? ""),
       background: parseBackground(String(formData.get("background") ?? "")),
+      schedule: parseSchedule(String(formData.get("schedule") ?? "")),
       portfolio: String(formData.get("portfolio") ?? ""),
       note: String(formData.get("note") ?? ""),
     }),
