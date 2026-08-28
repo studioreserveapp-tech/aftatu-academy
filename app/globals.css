@@ -61,6 +61,13 @@ body {
   color: var(--paper);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
+}
+
+/*
+ * Lives on a wrapper rather than on <body> so that portalled overlays stay
+ * fixed to the viewport instead of to a transformed containing block.
+ */
+.type-stretch {
   transform: scaleY(1.04);
   transform-origin: top center;
 }

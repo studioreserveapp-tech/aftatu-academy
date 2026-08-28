@@ -25,7 +25,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es" data-theme="studio" className="h-full antialiased">
       <body className="min-h-full bg-ink text-paper">
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          <div className="type-stretch min-h-full">{children}</div>
+        </LanguageProvider>
       </body>
     </html>
   );

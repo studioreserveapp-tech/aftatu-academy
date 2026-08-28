@@ -58,7 +58,8 @@ export function RegisterForm() {
 
   const closeSuccess = useCallback(() => {
     setState(initialState);
-    smoothScrollTo("learn");
+    // Wait for the dialog to unmount so the body scroll lock is lifted first.
+    window.requestAnimationFrame(() => smoothScrollTo("learn"));
   }, []);
 
   return (
