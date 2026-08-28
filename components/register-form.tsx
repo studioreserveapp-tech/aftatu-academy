@@ -1,10 +1,20 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { registerLead, type RegisterState } from "@/app/actions/register";
 import { useLanguage } from "@/components/language-provider";
 import { BACKGROUND_OPTIONS } from "@/lib/register/background";
 import type { MessageKey } from "@/lib/i18n/messages";
+
+function goToLearn() {
+  const section = document.getElementById("learn");
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", "#learn");
+    return;
+  }
+  window.location.hash = "learn";
+}
 
 const initialState: RegisterState = { status: "idle" };
 
@@ -26,22 +36,45 @@ export function RegisterForm() {
   const { locale, t } = useLanguage();
   const [state, formAction, pending] = useActionState(registerLead, initialState);
 
-  if (state.status === "success") {
-    return (
-      <div className="border border-black/10 bg-paper px-6 py-10 sm:px-8">
-        <p className="text-[11px] font-medium tracking-[0.16em] text-ink/50 uppercase">
-          {t("successEyebrow")}
-        </p>
-        <h3 className="mt-4 text-3xl font-thin tracking-[-0.02em] uppercase text-ink">{t("successTitle")}</h3>
-        <p className="mt-4 max-w-md text-base leading-7 text-mute">
-          {state.message ?? t("successMessage")}
-        </p>
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (state.status !== "success") return;
+    const timer = window.setTimeout(goToLearn, 3200);
+    return () => window.clearTimeout(timer);
+  }, [state.status]);
 
   return (
-    <form action={formAction} className="space-y-6" noValidate>
+    <>
+      {state.status === "success" ? (
+        <dialog className="modal modal-open" aria-labelledby="register-success-title">
+          <div className="modal-box rounded-none bg-paper text-ink">
+            <p className="text-[11px] font-medium tracking-[0.16em] text-ink/50 uppercase">
+              {t("successEyebrow")}
+            </p>
+            <h3
+              id="register-success-title"
+              className="mt-4 text-3xl font-thin tracking-[-0.02em] uppercase"
+            >
+              {t("successTitle")}
+            </h3>
+            <p className="mt-4 text-base leading-7 font-light text-gray-600">
+              {state.message ?? t("successMessage")}
+            </p>
+            <div className="modal-action">
+              <a href="#learn" className="btn btn-neutral rounded-none" onClick={goToLearn}>
+                {t("successContinue")}
+              </a>
+            </div>
+          </div>
+          <a
+            href="#learn"
+            className="modal-backdrop bg-ink/60"
+            aria-label={t("successContinue")}
+            onClick={goToLearn}
+          />
+        </dialog>
+      ) : null}
+
+      <form action={formAction} className="space-y-6" noValidate>
       <input type="hidden" name="locale" value={locale} />
       <input
         type="text"
@@ -191,5 +224,6 @@ export function RegisterForm() {
         {pending ? t("submitting") : t("submit")}
       </button>
     </form>
+    </>
   );
 }

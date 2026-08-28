@@ -127,6 +127,7 @@ export const messages = {
     successHoneypot: "Done. We’ll write you soon.",
     successMessage:
       "You’re on the list. Check your inbox for a confirmation — we’ll be in touch soon.",
+    successContinue: "Back to what you’ll learn",
     thanksSubject: "Thank you for your interest",
     thanksBody:
       "Thank you for your interest. You will hear back from us soon!",
@@ -270,6 +271,7 @@ export const messages = {
     successHoneypot: "Listo. Te escribimos pronto.",
     successMessage:
       "Quedaste en la lista. Revisa tu correo: te mandamos una confirmación. Pronto te escribimos.",
+    successContinue: "Volver a lo que aprenderás",
     thanksSubject: "Gracias por tu interés",
     thanksBody:
       "Gracias por tu interés. Pronto nos pondremos en contacto contigo.",
