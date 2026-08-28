@@ -64,9 +64,6 @@ export const messages = {
     pill7: "Guided practice on synthetic skin",
     pill8: "Aftercare and photographing the work",
     pill9: "Social media sales",
-    studioEyebrow: "The studio",
-    studioLine: "Minneapolis, Minnesota",
-    studioQuote: "You don’t need experience. You need curiosity, a steady hand, and the will to repeat.",
     methodEyebrow: "The program",
     methodTitle: "A method built for beginners.",
     methodLead:
@@ -196,9 +193,6 @@ export const messages = {
     pill7: "Prácticas guiadas en piel sintética",
     pill8: "Cuidados posteriores y foto del trabajo",
     pill9: "Ventas por redes sociales",
-    studioEyebrow: "El estudio",
-    studioLine: "Minneapolis, Minnesota",
-    studioQuote: "No se necesita experiencia. Se necesita curiosidad, pulso y ganas de repetir.",
     methodEyebrow: "El programa",
     methodTitle: "Un método pensado para principiantes.",
     methodLead:
