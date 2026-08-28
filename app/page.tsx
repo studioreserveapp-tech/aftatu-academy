@@ -1,3 +1,4 @@
+import { AnnouncementBar } from "@/components/announcement-bar";
 import { CourseSection } from "@/components/course-section";
 import { CtaSection } from "@/components/cta-section";
 import { HeroVideo } from "@/components/hero-video";
@@ -11,17 +12,22 @@ import { TrustBar } from "@/components/trust-bar";
 export default function Home() {
   return (
     <div id="top" className="min-h-screen bg-ink">
+      <AnnouncementBar />
       <SiteHeader />
-      <main>
-        <HeroVideo />
-        <TrustBar />
-        <LearnSection />
-        <CourseSection />
-        <MethodSection />
-        <CtaSection />
-        <RegisterSection />
-      </main>
-      <SiteFooter />
+      {/* The stretch sits below the fixed chrome: a transform would turn this
+          wrapper into the containing block for fixed positioning. */}
+      <div className="type-stretch">
+        <main>
+          <HeroVideo />
+          <TrustBar />
+          <LearnSection />
+          <CourseSection />
+          <MethodSection />
+          <CtaSection />
+          <RegisterSection />
+        </main>
+        <SiteFooter />
+      </div>
     </div>
   );
 }

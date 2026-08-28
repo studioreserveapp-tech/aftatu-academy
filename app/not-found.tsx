@@ -3,7 +3,7 @@ import { BrandLockup } from "@/components/brand-lockup";
 
 export default function NotFound() {
   return (
-    <main className="mx-auto flex min-h-[100svh] max-w-md flex-col justify-center px-6 text-center">
+    <main className="type-stretch mx-auto flex min-h-[100svh] max-w-md flex-col justify-center px-6 text-center">
       <div className="mb-10 flex justify-center">
         <BrandLockup />
       </div>

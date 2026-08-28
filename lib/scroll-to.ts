@@ -1,5 +1,8 @@
 const DURATION = 1100;
 
+/** Height of the fixed announcement bar. */
+const TOP_OFFSET = 40;
+
 function easeInOutCubic(progress: number) {
   return progress < 0.5
     ? 4 * progress * progress * progress
@@ -26,7 +29,7 @@ export function smoothScrollTo(id: string) {
   }
 
   const start = window.scrollY;
-  const end = start + target.getBoundingClientRect().top;
+  const end = Math.max(0, start + target.getBoundingClientRect().top - TOP_OFFSET);
   const distance = end - start;
   if (Math.abs(distance) < 2) {
     setHash();

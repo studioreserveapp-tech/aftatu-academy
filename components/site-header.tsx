@@ -1,18 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrandLockup } from "@/components/brand-lockup";
 import { LanguageToggle } from "@/components/language-toggle";
 import { useLanguage } from "@/components/language-provider";
 
+/** Past this point the announcement bar takes over as the only fixed chrome. */
+const HIDE_AFTER = 80;
+
 export function SiteHeader() {
   const { t } = useLanguage();
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const past = window.scrollY > HIDE_AFTER;
+      setHidden(past);
+      if (past) setOpen(false);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const close = () => setOpen(false);
 
   return (
-    <header className="absolute top-0 right-0 left-0 z-50 border-b border-white/20">
+    <header
+      className={`fixed top-10 right-0 left-0 z-50 border-b border-white/20 bg-ink/80 backdrop-blur-sm transition-all duration-300 ${
+        hidden && !open
+          ? "pointer-events-none -translate-y-3 opacity-0"
+          : "translate-y-0 opacity-100"
+      }`}
+    >
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
         <a
           href="#top"
