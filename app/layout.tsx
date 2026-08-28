@@ -1,27 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Outfit, Playfair_Display } from "next/font/google";
 import { LanguageProvider } from "@/components/language-provider";
 import { messages } from "@/lib/i18n/messages";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-});
-
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-});
 
 export const metadata: Metadata = {
   title: messages.es.metaTitle,
@@ -43,10 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="es"
-      className={`${inter.variable} ${playfair.variable} ${outfit.variable} h-full antialiased`}
-    >
+    <html lang="es" data-theme="studio" className="h-full antialiased">
       <body className="min-h-full bg-ink text-paper">
         <LanguageProvider>{children}</LanguageProvider>
       </body>

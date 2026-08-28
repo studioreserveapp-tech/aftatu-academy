@@ -34,7 +34,7 @@ export function SiteHeader() {
             {t("navRegister")}
           </a>
           <LanguageToggle />
-          <a href="#register" className="btn-outline">
+          <a href="#register" className="btn btn-outline btn-sm rounded-none">
             {t("headerEnroll")}
           </a>
         </nav>
@@ -81,7 +81,7 @@ export function SiteHeader() {
             <a href="#register" onClick={close}>
               {t("navRegister")}
             </a>
-            <a href="#register" className="btn-outline w-fit" onClick={close}>
+            <a href="#register" className="btn btn-outline btn-sm w-fit rounded-none" onClick={close}>
               {t("headerEnroll")}
             </a>
           </nav>

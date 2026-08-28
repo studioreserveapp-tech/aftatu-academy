@@ -2,13 +2,13 @@ import Image from "next/image";
 
 const SIZES = {
   nav: {
-    af: 72,
+    af: 76,
     studio: 48,
     line: "h-12",
     gap: "gap-3.5",
   },
   lg: {
-    af: 108,
+    af: 113,
     studio: 72,
     line: "h-[4.5rem]",
     gap: "gap-5",

@@ -17,7 +17,7 @@ export function StudioSection() {
           <BrandLockup size="lg" />
         </div>
         <p className="mb-4 text-sm text-soft">{t("studioLine")}</p>
-        <blockquote className="font-serif text-2xl italic text-paper">
+        <blockquote className="text-2xl font-light tracking-tight text-paper">
           “{t("studioQuote")}”
         </blockquote>
       </Reveal>
