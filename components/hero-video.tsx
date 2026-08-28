@@ -30,7 +30,7 @@ export function HeroVideo() {
 
       <Reveal className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center text-center">
         <p className="mb-5 text-xs tracking-[0.2em] text-soft uppercase">{t("heroKicker")}</p>
-        <h1 className="font-display mb-7 max-w-5xl text-5xl leading-[0.95] font-semibold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
+        <h1 className="font-display mb-7 max-w-5xl text-6xl leading-[0.9] font-bold tracking-tighter sm:text-7xl md:text-8xl lg:text-9xl">
           {t("heroTitle")}
         </h1>
         <p className="mb-8 max-w-lg text-base font-light leading-relaxed text-soft">{t("heroLead")}</p>
