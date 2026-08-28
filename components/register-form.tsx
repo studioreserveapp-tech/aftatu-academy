@@ -1,22 +1,16 @@
 "use client";
 
-import { useActionState, useEffect } from "react";
-import { registerLead, type RegisterState } from "@/app/actions/register";
+import { useCallback, useState, type FormEvent } from "react";
+import { RegisterSuccess } from "@/components/register-success";
 import { useLanguage } from "@/components/language-provider";
 import { BACKGROUND_OPTIONS } from "@/lib/register/background";
+import { submitRegistration, type RegisterResult } from "@/lib/register/submit";
+import { smoothScrollTo } from "@/lib/scroll-to";
 import type { MessageKey } from "@/lib/i18n/messages";
 
-function goToLearn() {
-  const section = document.getElementById("learn");
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth", block: "start" });
-    window.history.replaceState(null, "", "#learn");
-    return;
-  }
-  window.location.hash = "learn";
-}
+type FormState = RegisterResult | { status: "idle" };
 
-const initialState: RegisterState = { status: "idle" };
+const initialState: FormState = { status: "idle" };
 
 const BACKGROUND_COPY: Record<
   (typeof BACKGROUND_OPTIONS)[number]["formValue"],
@@ -27,6 +21,7 @@ const BACKGROUND_COPY: Record<
   tatuador: { label: "backgroundTatuador", help: "backgroundTatuadorHelp" },
 };
 
+
 function FieldError({ message }: { message?: string }) {
   if (!message) return null;
   return <p className="mt-2 text-sm text-danger">{message}</p>;
@@ -34,47 +29,38 @@ function FieldError({ message }: { message?: string }) {
 
 export function RegisterForm() {
   const { locale, t } = useLanguage();
-  const [state, formAction, pending] = useActionState(registerLead, initialState);
+  const [state, setState] = useState<FormState>(initialState);
+  const [pending, setPending] = useState(false);
 
-  useEffect(() => {
-    if (state.status !== "success") return;
-    const timer = window.setTimeout(goToLearn, 3200);
-    return () => window.clearTimeout(timer);
-  }, [state.status]);
+  const fieldErrors = state.status === "error" ? state.fieldErrors : undefined;
+
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (pending) return;
+
+    const form = event.currentTarget;
+    setPending(true);
+    const result = await submitRegistration(new FormData(form), locale);
+    setPending(false);
+    setState(result);
+
+    if (result.status === "success") {
+      form.reset();
+    }
+  };
+
+  const closeSuccess = useCallback(() => {
+    setState(initialState);
+    smoothScrollTo("learn");
+  }, []);
 
   return (
     <>
       {state.status === "success" ? (
-        <dialog className="modal modal-open" aria-labelledby="register-success-title">
-          <div className="modal-box rounded-none bg-paper text-ink">
-            <p className="text-[11px] font-medium tracking-[0.16em] text-ink/50 uppercase">
-              {t("successEyebrow")}
-            </p>
-            <h3
-              id="register-success-title"
-              className="mt-4 text-3xl font-thin tracking-[-0.02em] uppercase"
-            >
-              {t("successTitle")}
-            </h3>
-            <p className="mt-4 text-base leading-7 font-light text-gray-600">
-              {state.message ?? t("successMessage")}
-            </p>
-            <div className="modal-action">
-              <a href="#learn" className="btn btn-neutral rounded-none" onClick={goToLearn}>
-                {t("successContinue")}
-              </a>
-            </div>
-          </div>
-          <a
-            href="#learn"
-            className="modal-backdrop bg-ink/60"
-            aria-label={t("successContinue")}
-            onClick={goToLearn}
-          />
-        </dialog>
+        <RegisterSuccess message={state.message} onClose={closeSuccess} />
       ) : null}
 
-      <form action={formAction} className="space-y-6" noValidate>
+      <form onSubmit={onSubmit} className="space-y-6" noValidate>
       <input type="hidden" name="locale" value={locale} />
       <input
         type="text"
@@ -94,9 +80,9 @@ export function RegisterForm() {
             name="firstName"
             autoComplete="given-name"
             required
-            className={`input input-bordered w-full rounded-none bg-paper text-ink ${state.fieldErrors?.firstName ? "input-error" : ""}`}
+            className={`input input-bordered w-full rounded-none bg-paper text-ink ${fieldErrors?.firstName ? "input-error" : ""}`}
           />
-          <FieldError message={state.fieldErrors?.firstName} />
+          <FieldError message={fieldErrors?.firstName} />
         </label>
         <label className="block">
           <span className="mb-2 block text-[10px] font-semibold tracking-[0.22em] text-mute uppercase">
@@ -106,9 +92,9 @@ export function RegisterForm() {
             name="lastName"
             autoComplete="family-name"
             required
-            className={`input input-bordered w-full rounded-none bg-paper text-ink ${state.fieldErrors?.lastName ? "input-error" : ""}`}
+            className={`input input-bordered w-full rounded-none bg-paper text-ink ${fieldErrors?.lastName ? "input-error" : ""}`}
           />
-          <FieldError message={state.fieldErrors?.lastName} />
+          <FieldError message={fieldErrors?.lastName} />
         </label>
       </div>
 
@@ -122,9 +108,9 @@ export function RegisterForm() {
             type="email"
             autoComplete="email"
             required
-            className={`input input-bordered w-full rounded-none bg-paper text-ink ${state.fieldErrors?.email ? "input-error" : ""}`}
+            className={`input input-bordered w-full rounded-none bg-paper text-ink ${fieldErrors?.email ? "input-error" : ""}`}
           />
-          <FieldError message={state.fieldErrors?.email} />
+          <FieldError message={fieldErrors?.email} />
         </label>
         <label className="block">
           <span className="mb-2 block text-[10px] font-semibold tracking-[0.22em] text-mute uppercase">
@@ -137,9 +123,9 @@ export function RegisterForm() {
             inputMode="tel"
             placeholder={t("phonePlaceholder")}
             required
-            className={`input input-bordered w-full rounded-none bg-paper text-ink ${state.fieldErrors?.phone ? "input-error" : ""}`}
+            className={`input input-bordered w-full rounded-none bg-paper text-ink ${fieldErrors?.phone ? "input-error" : ""}`}
           />
-          <FieldError message={state.fieldErrors?.phone} />
+          <FieldError message={fieldErrors?.phone} />
         </label>
       </div>
 
@@ -155,10 +141,10 @@ export function RegisterForm() {
             name="instagram"
             autoComplete="off"
             placeholder={t("instagramPlaceholder")}
-            className={`input input-bordered w-full rounded-none bg-paper pl-9 text-ink ${state.fieldErrors?.instagram ? "input-error" : ""}`}
+            className={`input input-bordered w-full rounded-none bg-paper pl-9 text-ink ${fieldErrors?.instagram ? "input-error" : ""}`}
           />
         </div>
-        <FieldError message={state.fieldErrors?.instagram} />
+        <FieldError message={fieldErrors?.instagram} />
       </label>
 
       <fieldset>
@@ -194,9 +180,9 @@ export function RegisterForm() {
           name="portfolio"
           type="text"
           placeholder={t("portfolioPlaceholder")}
-          className={`input input-bordered w-full rounded-none bg-paper text-ink ${state.fieldErrors?.portfolio ? "input-error" : ""}`}
+          className={`input input-bordered w-full rounded-none bg-paper text-ink ${fieldErrors?.portfolio ? "input-error" : ""}`}
         />
-        <FieldError message={state.fieldErrors?.portfolio} />
+        <FieldError message={fieldErrors?.portfolio} />
       </label>
 
       <label className="block">
@@ -207,12 +193,12 @@ export function RegisterForm() {
           name="note"
           rows={4}
           placeholder={t("notePlaceholder")}
-          className={`textarea textarea-bordered w-full rounded-none bg-paper text-ink ${state.fieldErrors?.note ? "textarea-error" : ""}`}
+          className={`textarea textarea-bordered w-full rounded-none bg-paper text-ink ${fieldErrors?.note ? "textarea-error" : ""}`}
         />
-        <FieldError message={state.fieldErrors?.note} />
+        <FieldError message={fieldErrors?.note} />
       </label>
 
-      {state.status === "error" && state.message ? (
+      {state.status === "error" ? (
         <p className="text-sm text-danger">{state.message}</p>
       ) : null}
 

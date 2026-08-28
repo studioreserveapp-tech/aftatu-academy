@@ -1,21 +1,19 @@
-"use server";
-
 import { FORMSUBMIT_INBOX, SITE_URL, formSubmitAjaxUrl } from "@/lib/formsubmit";
-import { t } from "@/lib/i18n/messages";
-import { readRegisterForm, resolveLocale } from "@/lib/register/schema";
+import { t, type Locale } from "@/lib/i18n/messages";
+import { readRegisterForm } from "@/lib/register/schema";
 
-export type RegisterState = {
-  status: "idle" | "success" | "error";
-  message?: string;
-  fieldErrors?: Record<string, string>;
-};
+export type RegisterResult =
+  | { status: "success"; message: string }
+  | { status: "error"; message: string; fieldErrors?: Record<string, string> };
 
-export async function registerLead(
-  _prev: RegisterState,
+/**
+ * FormSubmit sits behind Cloudflare and rejects non-browser requests, so this
+ * has to run in the browser rather than in a server action.
+ */
+export async function submitRegistration(
   formData: FormData,
-): Promise<RegisterState> {
-  const locale = resolveLocale(formData.get("locale"));
-
+  locale: Locale,
+): Promise<RegisterResult> {
   if (String(formData.get("company") ?? "").trim()) {
     return { status: "success", message: t(locale, "successHoneypot") };
   }
@@ -27,11 +25,7 @@ export async function registerLead(
       const key = String(issue.path[0] ?? "form");
       if (!fieldErrors[key]) fieldErrors[key] = issue.message;
     }
-    return {
-      status: "error",
-      message: t(locale, "reviewFields"),
-      fieldErrors,
-    };
+    return { status: "error", message: t(locale, "reviewFields"), fieldErrors };
   }
 
   const lead = parsed.data;
@@ -51,8 +45,6 @@ export async function registerLead(
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Origin: SITE_URL,
-        Referer: `${SITE_URL}/`,
       },
       body: JSON.stringify({
         _subject:
@@ -62,32 +54,35 @@ export async function registerLead(
         _template: "table",
         _captcha: "false",
         _autoresponse: autoresponse,
-        _honey: "",
-        name: fullName,
+        Nombre: fullName,
+        Email: lead.email,
+        Telefono: lead.phone,
+        Instagram: lead.instagram ? `@${lead.instagram}` : "—",
+        Experiencia: lead.background,
+        Portfolio: lead.portfolio || "—",
+        Nota: lead.note || "—",
+        Idioma: locale,
+        Sitio: SITE_URL,
+        _replyto: lead.email,
         email: lead.email,
-        phone: lead.phone,
-        instagram: lead.instagram ? `@${lead.instagram}` : "",
-        background: lead.background,
-        portfolio: lead.portfolio,
-        note: lead.note,
-        locale,
-        website: SITE_URL,
         to: FORMSUBMIT_INBOX,
       }),
     });
 
-    if (!response.ok) {
+    const payload = (await response.json().catch(() => null)) as
+      | { success?: string | boolean }
+      | null;
+
+    const ok =
+      response.ok &&
+      (payload?.success === true || String(payload?.success ?? "") === "true");
+
+    if (!ok) {
       return { status: "error", message: t(locale, "errSubmit") };
     }
 
-    return {
-      status: "success",
-      message: t(locale, "successMessage"),
-    };
+    return { status: "success", message: t(locale, "successMessage") };
   } catch {
-    return {
-      status: "error",
-      message: t(locale, "errSubmit"),
-    };
+    return { status: "error", message: t(locale, "errSubmit") };
   }
 }
