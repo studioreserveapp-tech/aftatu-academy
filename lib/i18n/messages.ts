@@ -33,7 +33,7 @@ export const messages = {
     heroSecondary: "See what you’ll learn",
     heroCta: "See the full program",
     courseEyebrow: "The course",
-    courseTitle: "You arrive with nothing. You start with everything.",
+    courseTitle: "The studio gives you your first kit.",
     courseP1:
       "One monthly payment opens the studio: face-to-face classes, practice materials, and a welcome kit with your own tattoo machine. The hand is trained on synthetic skin — not on people. You don’t need experience. You need the will to come back.",
     courseP2: "Theory and synthetic-skin practice only.",
