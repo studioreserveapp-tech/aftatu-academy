@@ -33,7 +33,7 @@ export const messages = {
     heroSecondary: "See what you’ll learn",
     heroCta: "See the full program",
     courseEyebrow: "The course",
-    courseTitle: "The studio lends you your first kit.",
+    courseTitle: "The studio gives you your first kit.",
     courseP1:
       "One monthly payment opens the studio: face-to-face classes, practice materials, and a welcome kit with your own tattoo machine. The hand is trained on synthetic skin — not on people. You don’t need experience. You need the will to come back.",
     courseP2: "Theory and synthetic-skin practice only.",
@@ -174,7 +174,7 @@ export const messages = {
     heroSecondary: "Ver lo que aprenderás",
     heroCta: "Ver programa completo",
     courseEyebrow: "El curso",
-    courseTitle: "El primer equipo te lo da el estudio.",
+    courseTitle: "El primer equipo te lo presta el estudio.",
     courseP1:
       "Una mensualidad y el estudio se abre: clases frente a frente, material para practicar y un kit de bienvenida con tu propia máquina. El pulso se entrena en piel sintética, no en personas. No hace falta que sepas. Hace falta que quieras volver.",
     courseP2: "Solo teoría y práctica en piel sintética.",
