@@ -12,7 +12,6 @@ const FACTS: { label: MessageKey; value: MessageKey }[] = [
   { label: "rhythmLanguage", value: "rhythmLanguageValue" },
   { label: "rhythmSeats", value: "rhythmSeatsValue" },
   { label: "rhythmMaterials", value: "rhythmMaterialsValue" },
-  { label: "rhythmPrice", value: "rhythmPriceValue" },
 ];
 
 export function MethodSection() {
@@ -29,8 +28,16 @@ export function MethodSection() {
           {t("methodLead")}
         </p>
         <dl className="grid gap-px overflow-hidden bg-line sm:grid-cols-2">
-          {FACTS.map((item) => (
-            <div key={item.label} className="bg-ink px-6 py-6">
+          {FACTS.map((item, index) => (
+            <div
+              key={item.label}
+              className={`bg-ink px-6 py-6 ${
+                // An odd count would otherwise leave a bare grid cell showing.
+                index === FACTS.length - 1 && FACTS.length % 2 === 1
+                  ? "sm:col-span-2"
+                  : ""
+              }`}
+            >
               <dt className="text-[11px] font-medium tracking-[0.14em] text-mute uppercase">
                 {t(item.label)}
               </dt>

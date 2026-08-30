@@ -54,8 +54,6 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  /* Keeps anchor targets clear of the fixed announcement bar. */
-  scroll-padding-top: 2.5rem;
 }
 
 body {

@@ -53,8 +53,8 @@ export async function submitRegistration(
       body: JSON.stringify({
         _subject:
           locale === "es"
-            ? `Nueva inscripción · ${fullName}`
-            : `New enrollment · ${fullName}`,
+            ? `Lista de espera · ${fullName}`
+            : `Waitlist · ${fullName}`,
         _template: "table",
         _captcha: "false",
         _autoresponse: autoresponse,

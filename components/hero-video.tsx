@@ -11,7 +11,7 @@ export function HeroVideo() {
   const videoSrc = process.env.NEXT_PUBLIC_HERO_VIDEO_URL || DEFAULT_VIDEO;
 
   return (
-    <section className="relative flex min-h-[640px] flex-col items-center justify-end px-6 pt-[10.5rem] pb-16">
+    <section className="relative flex min-h-[640px] flex-col items-center justify-end px-6 pt-32 pb-16">
       <div className="absolute inset-0">
         <video
           className="h-full w-full object-cover object-top opacity-50"
@@ -35,12 +35,8 @@ export function HeroVideo() {
         </h1>
         <p className="mb-6 max-w-2xl text-xl font-light leading-relaxed text-soft">{t("heroLead")}</p>
 
-        <p className="mb-8 flex flex-col items-center gap-2 text-xs font-medium tracking-[0.14em] text-paper uppercase sm:flex-row sm:gap-3 sm:text-sm">
-          <span>{t("heroStartDate")}</span>
-          <span aria-hidden="true" className="hidden text-mute sm:inline">
-            ·
-          </span>
-          <span className="text-soft">{t("heroDeadline")}</span>
+        <p className="mb-8 text-xs font-medium tracking-[0.14em] text-paper uppercase sm:text-sm">
+          {t("heroWaitlist")}
         </p>
 
         <a href="#program" className="btn btn-primary mb-6 w-full max-w-[280px] rounded-none">
